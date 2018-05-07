@@ -542,7 +542,7 @@ namespace GCDownloader
 
                 int counter = 0;
                 string Filename;
-                bool downloadComplete;
+                bool downloadComplete = false;
 
                 foreach (GCActivity activity in activityList)
                 {
@@ -592,7 +592,7 @@ namespace GCDownloader
                     counter++;
                 }
 
-                statusMessage.Text = String.Format("{0} activities downloaded", counter);
+                if (downloadComplete) statusMessage.Text = String.Format("{0} activities downloaded", counter);
 
                 retVal = counter;
             }
@@ -640,7 +640,7 @@ namespace GCDownloader
                 txtDistance.Text = (activity.Distance / 1000).ToString("#,0.00 km");
                 txtDuration.Text = TimeSpan.FromSeconds(activity.Duration).ToString(@"hh\:mm\:ss");
                 txtCalories.Text = activity.Calories.ToString("0 C");
-                txtSteps.Text = activity.Steps.HasValue ? "" : activity.Steps.Value.ToString("#,0");
+                txtSteps.Text = activity.Steps.HasValue ? activity.Steps.Value.ToString("#,0") : "";
             }
             else
             {
