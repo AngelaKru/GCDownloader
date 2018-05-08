@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/GCDownloader/v15/Server/sqlite3
+/SwitchToMaster.cmd
+/SwitchToDevelop.cmd
+/PullMaster.cmd
+/PullDevelop.cmd
