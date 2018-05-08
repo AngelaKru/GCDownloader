@@ -69,6 +69,8 @@ namespace GCDownloader
         public GCActivityTypes ActivityTypes { get { return activityTypes; } set { activityTypes = value; } }
         public GCEventTypes EventTypes { get { return eventTypes; } set { eventTypes = value; } }
 
+        private List<GCActivity> ActivityCache { get; set; }
+
         #region From the interwebs: https://github.com/bergziege/GarminToolboxNet
 
         private const string ClientId = "GCDownloader";
@@ -238,7 +240,8 @@ namespace GCDownloader
             _cookieJar = new CookieContainer();
 
             panelLogin.BringToFront();
-            txtUsername.Focus();
+            if (txtUsername.Text.Length > 0) txtPassword.Focus();
+            else txtUsername.Focus();
         }
 
         private void txtUsername_KeyPress(object sender, KeyPressEventArgs e)
@@ -284,19 +287,19 @@ namespace GCDownloader
         {
             ActivityBatchStart -= ActivityBatchSize;
             if (ActivityBatchStart < 0) ActivityBatchStart = 0;
-            if (loginStatus == LoginStatus.LoggedIn) GetActivityList(ActivityBatchStart, ActivityBatchSize);
+            RefreshList();
         }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
             ActivityBatchStart += ActivityBatchSize;
-            if (loginStatus == LoginStatus.LoggedIn) GetActivityList(ActivityBatchStart, ActivityBatchSize);
+            RefreshList();
         }
 
         private void numBatchSize_ValueChanged(object sender, EventArgs e)
         {
             ActivityBatchSize = Decimal.ToInt32(numBatchSize.Value);
-            if (loginStatus == LoginStatus.LoggedIn) GetActivityList(ActivityBatchStart, ActivityBatchSize);
+            RefreshList();
         }
 
         private void GCDownloader_FormClosing(object sender, FormClosingEventArgs e)
@@ -374,6 +377,16 @@ namespace GCDownloader
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             RefreshList();
+        }
+
+        private void mniClearCache_Click(object sender, EventArgs e)
+        {
+            ActivityCache = new List<GCActivity>();
+        }
+
+        private void mniSignout_Click(object sender, EventArgs e)
+        {
+            RedoLogin();
         }
 
         #endregion
@@ -490,41 +503,51 @@ namespace GCDownloader
 
         private void GetActivityList(int start, int batchsize)
         {
-            btnPrevious.Enabled = start > 0;
+            try
+            {   //an extended period of inactivity may cause the session to expire, in which case, log in again
+                btnPrevious.Enabled = start > 0;
 
-            HttpWebRequest request = HttpUtils.CreateRequest(string.Format(ACTIVITIES, start, batchsize), Cookies);
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            string responseStr = HttpUtils.GetResponseAsString(response);
-            response.Close();
+                HttpWebRequest request = HttpUtils.CreateRequest(string.Format(ACTIVITIES, start, batchsize), Cookies);
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                string responseStr = HttpUtils.GetResponseAsString(response);
+                response.Close();
 
-            JArray activities = (JArray)JsonConvert.DeserializeObject(responseStr);
+                JArray activities = (JArray)JsonConvert.DeserializeObject(responseStr);
 
-            List<GCActivity> gcActivities = new List<GCActivity>();
-            for (int i = 0; i < activities.Count; i++)
-            {
-                var activity = activities[i];
+                List<GCActivity> gcActivities = new List<GCActivity>();
+                for (int i = 0; i < activities.Count; i++)
+                {
+                    var activity = activities[i];
 
-                GCActivity gcActivity = new GCActivity();
-                gcActivity.ActivityID = (long)((JValue)activity["activityId"]).Value;
-                gcActivity.ActivityName = ((JValue)activity["activityName"]).Value.ToString();
-                gcActivity.ActivityStartTime = DateTime.Parse(((JValue)activity["startTimeLocal"]).Value.ToString());
-                gcActivity.GMTStartTime = DateTime.Parse(((JValue)activity["startTimeGMT"]).Value.ToString());
-                gcActivity.ActivityType = ((JValue)activity["activityType"]["typeKey"]).ToString();
-                gcActivity.EventType = ((JValue)activity["eventType"]["typeKey"]).ToString();
-                gcActivity.Distance = ((JValue)activity["distance"]) == null ? 0 : (double)((JValue)activity["distance"]).Value;
-                gcActivity.Duration = (double)((JValue)activity["duration"]).Value;
-                gcActivity.Calories = (double)((JValue)activity["calories"]).Value;
-                gcActivity.Steps = ((JValue)activity["steps"]).Value == null ? 0 : (long)((JValue)activity["steps"]).Value;
-                gcActivities.Add(gcActivity);
+                    GCActivity gcActivity = new GCActivity();
+                    gcActivity.ActivityID = (long)((JValue)activity["activityId"]).Value;
+                    gcActivity.ActivityName = ((JValue)activity["activityName"]).Value.ToString();
+                    gcActivity.ActivityStartTime = DateTime.Parse(((JValue)activity["startTimeLocal"]).Value.ToString());
+                    gcActivity.GMTStartTime = DateTime.Parse(((JValue)activity["startTimeGMT"]).Value.ToString());
+                    gcActivity.ActivityType = ((JValue)activity["activityType"]["typeKey"]).ToString();
+                    gcActivity.EventType = ((JValue)activity["eventType"]["typeKey"]).ToString();
+                    gcActivity.Distance = ((JValue)activity["distance"]) == null ? 0 : (double)((JValue)activity["distance"]).Value;
+                    gcActivity.Duration = (double)((JValue)activity["duration"]).Value;
+                    gcActivity.Calories = (double)((JValue)activity["calories"]).Value;
+                    gcActivity.Steps = ((JValue)activity["steps"]).Value == null ? 0 : (long)((JValue)activity["steps"]).Value;
+                    gcActivities.Add(gcActivity);
+
+                    //cache it
+                    CacheActivity(gcActivity, false);
+                }
+
+                lstActivities.DataSource = gcActivities;
+                lstActivities.ValueMember = "ActivityID";
+                lstActivities.DisplayMember = "ActivityDisplayName";
+
+                btnNext.Enabled = gcActivities.Count > 0;
+
+                lstActivities.Focus();
             }
-
-            lstActivities.DataSource = gcActivities;
-            lstActivities.ValueMember = "ActivityID";
-            lstActivities.DisplayMember = "ActivityDisplayName";
-
-            btnNext.Enabled = gcActivities.Count > 0;
-
-            lstActivities.Focus();
+            catch
+            {
+                RedoLogin();
+            }
         }
 
         private int DownloadActivities(List<GCActivity> activityList)
@@ -548,6 +571,7 @@ namespace GCDownloader
                 {
                     Filename = Path.Combine(DownloadFolder, Username, activity.ActivityStartTime.Year.ToString("0000"), activity.ActivityStartTime.Month.ToString("00"), String.Format("{0}-{1}-{2}_{3}", activity.ActivityStartTime.Year.ToString("0000"), activity.ActivityStartTime.Month.ToString("00"), activity.ActivityStartTime.Day.ToString("00"), activity.ActivityID));
                     if (folderLocation == "") folderLocation = Path.GetDirectoryName(Filename); //open first location as this is most recent returned from GC
+                    if (!Directory.Exists(folderLocation)) Directory.CreateDirectory(folderLocation);
 
                     HttpWebRequest request;
                     HttpWebResponse response;
@@ -622,7 +646,17 @@ namespace GCDownloader
 
         private void RefreshList()
         {
-            if (loginStatus == LoginStatus.LoggedIn) GetActivityList(ActivityBatchStart, ActivityBatchSize);
+            try
+            {
+                if (loginStatus == LoginStatus.LoggedIn) GetActivityList(ActivityBatchStart, ActivityBatchSize);
+            }
+            catch
+            {
+                SignOut();
+                panelLogin.BringToFront();
+                txtPassword.Text = "";
+                txtPassword.Focus();
+            }
         }
 
         private void PreviewActivity(GCActivity activity)
@@ -656,6 +690,40 @@ namespace GCDownloader
             }
         }
 
+        private bool CacheActivity(GCActivity activity, bool refresh = false)
+        {
+            try
+            {
+                if (ActivityCache == null) ActivityCache = new List<GCActivity>();
+
+                int idx = ActivityCache.FindIndex(x => x.ActivityID == activity.ActivityID);
+
+                //not found
+                if (idx < 0) ActivityCache.Add(activity);
+                else //found
+                {
+                    if (refresh) ActivityCache[idx] = activity;
+                }
+
+                idx = ActivityCache.FindIndex(x => x.ActivityID == activity.ActivityID);
+                return idx >= 0; //cached successfully
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private void RedoLogin()
+        {
+            SignOut();
+            SetStatus("Signed out.");
+            panelLogin.BringToFront();
+            txtPassword.Text = "";
+            DoRegCheck();
+            if (txtUsername.Text.Length > 0) txtPassword.Focus();
+            else txtUsername.Focus();
+        }
         #endregion
     }
 
