@@ -74,6 +74,8 @@
             this.btnNext = new System.Windows.Forms.Button();
             this.btnPrevious = new System.Windows.Forms.Button();
             this.lblActivities = new System.Windows.Forms.Label();
+            this.mniClearCache = new System.Windows.Forms.ToolStripMenuItem();
+            this.mniSignout = new System.Windows.Forms.ToolStripMenuItem();
             this.ssStatus.SuspendLayout();
             this.panelLogin.SuspendLayout();
             this.panelMain.SuspendLayout();
@@ -454,9 +456,11 @@
             this.mniSelectAll,
             this.mniDownloadSelected,
             this.mniRefresh,
-            this.mniOpenSelected});
+            this.mniOpenSelected,
+            this.mniClearCache,
+            this.mniSignout});
             this.cmnMenu.Name = "cmnMenu";
-            this.cmnMenu.Size = new System.Drawing.Size(237, 114);
+            this.cmnMenu.Size = new System.Drawing.Size(237, 158);
             // 
             // mniSetDownloadFolder
             // 
@@ -537,6 +541,24 @@
             this.lblActivities.TabIndex = 0;
             this.lblActivities.Text = "Activities: ";
             // 
+            // mniClearCache
+            // 
+            this.mniClearCache.Name = "mniClearCache";
+            this.mniClearCache.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.C)));
+            this.mniClearCache.Size = new System.Drawing.Size(236, 22);
+            this.mniClearCache.Text = "&Clear Cache";
+            this.mniClearCache.Click += new System.EventHandler(this.mniClearCache_Click);
+            // 
+            // mniSignout
+            // 
+            this.mniSignout.Name = "mniSignout";
+            this.mniSignout.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.Q)));
+            this.mniSignout.Size = new System.Drawing.Size(236, 22);
+            this.mniSignout.Text = "Log &Out";
+            this.mniSignout.Click += new System.EventHandler(this.mniSignout_Click);
+            // 
             // GCDownloader
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -610,6 +632,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem mniOpenSelected;
         private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.ToolStripMenuItem mniClearCache;
+        private System.Windows.Forms.ToolStripMenuItem mniSignout;
     }
 }
 
