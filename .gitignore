@@ -7,3 +7,6 @@
 /SwitchToDevelop.cmd
 /PullMaster.cmd
 /PullDevelop.cmd
+/GCDownloader/bin/Debug
+/GCDownloader/obj/Debug
+/.vs/GCDownloader/v15
