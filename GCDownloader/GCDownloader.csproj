@@ -127,6 +127,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="GCDownloader.ico" />
+    <Content Include="JSON GC.sql" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
