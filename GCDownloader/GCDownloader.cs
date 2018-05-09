@@ -71,6 +71,8 @@ namespace GCDownloader
 
         private List<GCActivity> ActivityCache { get; set; }
 
+        private List<GCDailySummary> DailySummaryCache { get; set; }
+
         #region From the interwebs: https://github.com/bergziege/GarminToolboxNet
 
         private const string ClientId = "GCDownloader";
@@ -234,6 +236,8 @@ namespace GCDownloader
 
         #region Form Controls
 
+        #region Login
+
         public GCDownloader()
         {
             InitializeComponent();
@@ -242,6 +246,23 @@ namespace GCDownloader
             panelLogin.BringToFront();
             if (txtUsername.Text.Length > 0) txtPassword.Focus();
             else txtUsername.Focus();
+        }
+
+        private void GCDownloader_Load(object sender, EventArgs e)
+        {
+            SetStatus(message: "Welcome to GCDownloader. Please login to continue.");
+            numBatchSize.Value = ActivityBatchSize;
+            DoRegCheck();
+            if (txtUsername.Text.Length > 0) txtPassword.Focus();
+            else txtUsername.Focus();
+            try
+            {
+                this.Text = string.Format("GarminConnect Downloader v{0}", System.Deployment.Application.ApplicationDeployment.CurrentDeployment.CurrentVersion);
+            }
+            catch
+            {
+                this.Text = string.Format("GarminConnect Downloader v{0}", Application.ProductVersion);
+            }
         }
 
         private void txtUsername_KeyPress(object sender, KeyPressEventArgs e)
@@ -266,22 +287,14 @@ namespace GCDownloader
             GCAuthenticate();
         }
 
-        private void GCDownloader_Load(object sender, EventArgs e)
+        private void GCDownloader_FormClosing(object sender, FormClosingEventArgs e)
         {
-            SetStatus(message: "Welcome to GCDownloader. Please login to continue.");
-            numBatchSize.Value = ActivityBatchSize;
-            DoRegCheck();
-            if (txtUsername.Text.Length > 0) txtPassword.Focus();
-            else txtUsername.Focus();
-            try
-            {
-                this.Text = string.Format("GarminConnect Downloader v{0}", System.Deployment.Application.ApplicationDeployment.CurrentDeployment.CurrentVersion);
-            }
-            catch
-            {
-                this.Text = string.Format("GarminConnect Downloader v{0}", Application.ProductVersion);
-            }
+            DoRegCheck(Username, Password);
         }
+
+        #endregion
+
+        #region Activities
 
         private void btnPrevious_Click(object sender, EventArgs e)
         {
@@ -300,11 +313,6 @@ namespace GCDownloader
         {
             ActivityBatchSize = Decimal.ToInt32(numBatchSize.Value);
             RefreshList();
-        }
-
-        private void GCDownloader_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            DoRegCheck(Username, Password);
         }
 
         private void mniSetDownloadFolder_Click(object sender, EventArgs e)
@@ -391,7 +399,97 @@ namespace GCDownloader
 
         #endregion
 
+        #region Daily Summary
+
+        private void mniSetDownloadFolderDailySummary_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mniSelectAllDailySummary_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mniDownloadSelectedDailySummary_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mniRefreshDailySummary_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mniOpenSelectedDailySummary_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mniClearCacheDailySummary_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mniLogoutDailySummary_Click(object sender, EventArgs e)
+        {
+            RedoLogin();
+        }
+
+        #endregion
+
+        #region Wellness
+
+        private void mniSetDownloadFolderWellness_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mniSelectAllWellness_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mniDownloadSelectedWellness_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mniRefreshWellness_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mniOpenSelectedWellness_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mniClearCacheWellness_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mniLogoutWellness_Click(object sender, EventArgs e)
+        {
+            RedoLogin();
+        }
+        #endregion
+
+        #endregion
+
         #region Custom Methods
+
+        #region General
+
+        private void SetStatus(string message)
+        {
+            statusMessage.Text = message;
+        }
+
+        #endregion
+
+        #region Login
 
         private void DoRegCheck(string Username = null, string Password = null)
         {
@@ -444,7 +542,7 @@ namespace GCDownloader
                 loginStatus = LoginStatus.LoggedIn;
                 DoRegCheck(Username, Password);
                 ActivityBatchStart = 0;
-                panelMain.BringToFront();
+                panelActivities.BringToFront();
                 GetActivityList(ActivityBatchStart, ActivityBatchSize);
                 if (lstActivities.Items.Count > 0) lstActivities.SetSelected(0, true);
                 lstActivities.Select();
@@ -457,6 +555,21 @@ namespace GCDownloader
 
             return SignInStatus;
         }
+
+        private void RedoLogin()
+        {
+            SignOut();
+            SetStatus("Signed out.");
+            panelLogin.BringToFront();
+            txtPassword.Text = "";
+            DoRegCheck();
+            if (txtUsername.Text.Length > 0) txtPassword.Focus();
+            else txtUsername.Focus();
+        }
+
+        #endregion
+
+        #region Activities
 
         private bool GetActivityTypes()
         {
@@ -494,11 +607,6 @@ namespace GCDownloader
                 SetStatus(string.Format("Error: {0}", ex.Message));
                 return false;
             }
-        }
-
-        private void SetStatus(string message)
-        {
-            statusMessage.Text = message;
         }
 
         private void GetActivityList(int start, int batchsize)
@@ -714,16 +822,82 @@ namespace GCDownloader
             }
         }
 
-        private void RedoLogin()
+        #endregion
+
+        #region Daily Summary
+
+        private bool CacheDailySummary(GCDailySummary dailySummary, bool refresh = false)
         {
-            SignOut();
-            SetStatus("Signed out.");
-            panelLogin.BringToFront();
-            txtPassword.Text = "";
-            DoRegCheck();
-            if (txtUsername.Text.Length > 0) txtPassword.Focus();
-            else txtUsername.Focus();
+            try
+            {
+                if (DailySummaryCache == null) DailySummaryCache = new List<GCDailySummary>();
+
+                int idx = DailySummaryCache.FindIndex(x => x.StartGMT == dailySummary.StartGMT);
+
+                //not found
+                if (idx < 0) DailySummaryCache.Add(dailySummary);
+                else //found
+                {
+                    if (refresh) DailySummaryCache[idx] = dailySummary;
+                }
+
+                idx = DailySummaryCache.FindIndex(x => x.StartGMT == dailySummary.StartGMT);
+                return idx >= 0; //cached successfully
+            }
+            catch
+            {
+                return false;
+            }
         }
+
+        private void GetDailySummary(DateTime date)
+        {
+            try
+            {   //an extended period of inactivity may cause the session to expire, in which case, log in again
+
+                HttpWebRequest request = HttpUtils.CreateRequest(string.Format(DAILYSUMMARY, Username, date.ToString("yyyy-MM-dd")), Cookies);
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                string responseStr = HttpUtils.GetResponseAsString(response);
+                response.Close();
+
+                JArray dailySummary = (JArray)JsonConvert.DeserializeObject(responseStr);
+
+                List<GCDailySummary> gcDailySummary = new List<GCDailySummary>();
+                for (int i = 0; i < dailySummary.Count; i++)
+                {
+                    var item = dailySummary[i];
+
+                    GCDailySummary entry = new GCDailySummary();
+                    entry.StartGMT = DateTime.Parse(((JValue)item["startGMT"]).Value.ToString());
+                    entry.EndGMT = DateTime.Parse(((JValue)item["endGMT"]).Value.ToString());
+                    entry.Steps = ((JValue)item["steps"]).Value == null ? 0 : (long)((JValue)item["steps"]).Value;
+                    entry.PrimaryActivityLevel = ((JValue)item["primaryActivityLevel"]).Value.ToString();
+                    entry.ActivityLevelConstant = ((JValue)item["activityLevelConstant"]).Value.ToString() == "true" ? true : false;
+                    gcDailySummary.Add(entry);
+
+                    //cache it
+                    CacheDailySummary(entry, false);
+                }
+
+                lstDailySummary.DataSource = gcDailySummary;
+                lstDailySummary.ValueMember = "StartGMT";
+                lstDailySummary.DisplayMember = "DailySummaryDisplay";
+
+                btnNext.Enabled = gcDailySummary.Count > 0;
+
+                lstDailySummary.Focus();
+            }
+            catch
+            {
+                RedoLogin();
+            }
+        }
+
+        #endregion
+
+        #region Wellness
+
+        #endregion
         #endregion
     }
 
@@ -806,6 +980,19 @@ namespace GCDownloader
     public class GCEventTypes
     {
         public List<GCEventType> dictionary { get; set; }
+    }
+
+    public class GCDailySummary
+    {
+        public DateTime StartGMT { get; set; }
+        public DateTime EndGMT { get; set; }
+        public long Steps { get; set; }
+        public string PrimaryActivityLevel { get; set; }
+        public bool ActivityLevelConstant { get; set; }
+        public string DailySummaryDisplay
+        {
+            get { return String.Format("{0} - {1}: {2} Steps", StartGMT.ToString("yyyy-MM-dd"), EndGMT.ToString("yyyy-MM-dd"), Steps); }
+        }
     }
 
     static class HttpUtils

@@ -40,9 +40,9 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
-            this.panelMain = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.panelActivities = new System.Windows.Forms.Panel();
+            this.panelActivityPreview = new System.Windows.Forms.Panel();
+            this.lblActivityDetails = new System.Windows.Forms.Label();
             this.txtSteps = new System.Windows.Forms.TextBox();
             this.txtCalories = new System.Windows.Forms.TextBox();
             this.txtDuration = new System.Windows.Forms.TextBox();
@@ -64,31 +64,76 @@
             this.numBatchSize = new System.Windows.Forms.NumericUpDown();
             this.lblBatchSize = new System.Windows.Forms.Label();
             this.lstActivities = new System.Windows.Forms.ListBox();
-            this.cmnMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmnActivities = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mniSetDownloadFolder = new System.Windows.Forms.ToolStripMenuItem();
             this.mniSelectAll = new System.Windows.Forms.ToolStripMenuItem();
             this.mniDownloadSelected = new System.Windows.Forms.ToolStripMenuItem();
             this.mniRefresh = new System.Windows.Forms.ToolStripMenuItem();
             this.mniOpenSelected = new System.Windows.Forms.ToolStripMenuItem();
+            this.mniClearCache = new System.Windows.Forms.ToolStripMenuItem();
+            this.mniLogout = new System.Windows.Forms.ToolStripMenuItem();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnPrevious = new System.Windows.Forms.Button();
             this.lblActivities = new System.Windows.Forms.Label();
-            this.mniClearCache = new System.Windows.Forms.ToolStripMenuItem();
-            this.mniSignout = new System.Windows.Forms.ToolStripMenuItem();
+            this.panelDailySummary = new System.Windows.Forms.Panel();
+            this.numDailySummaryBatchSize = new System.Windows.Forms.NumericUpDown();
+            this.lblDailySummaryBatchSize = new System.Windows.Forms.Label();
+            this.btnDailySummaryRefresh = new System.Windows.Forms.Button();
+            this.btnDailySummaryNext = new System.Windows.Forms.Button();
+            this.btnDailySummaryPrevious = new System.Windows.Forms.Button();
+            this.panelDailySummaryDetails = new System.Windows.Forms.Panel();
+            this.lstDailySummary = new System.Windows.Forms.ListBox();
+            this.cmnDailySummary = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mniSetDownloadFolderDailySummary = new System.Windows.Forms.ToolStripMenuItem();
+            this.mniSelectAllDailySummary = new System.Windows.Forms.ToolStripMenuItem();
+            this.mniDownloadSelectedDailySummary = new System.Windows.Forms.ToolStripMenuItem();
+            this.mniRefreshDailySummary = new System.Windows.Forms.ToolStripMenuItem();
+            this.mniOpenSelectedDailySummary = new System.Windows.Forms.ToolStripMenuItem();
+            this.mniClearCacheDailySummary = new System.Windows.Forms.ToolStripMenuItem();
+            this.mniLogoutDailySummary = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblDailySummary = new System.Windows.Forms.Label();
+            this.panelWellness = new System.Windows.Forms.Panel();
+            this.numWellnessBatchSize = new System.Windows.Forms.NumericUpDown();
+            this.lblWellnessBatchSize = new System.Windows.Forms.Label();
+            this.btnWellnessRefresh = new System.Windows.Forms.Button();
+            this.btnWellnessNext = new System.Windows.Forms.Button();
+            this.btnWellnessPrevious = new System.Windows.Forms.Button();
+            this.panelWellnessDetail = new System.Windows.Forms.Panel();
+            this.lstWellness = new System.Windows.Forms.ListBox();
+            this.cmnWellness = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mniSetDownloadFolderWellness = new System.Windows.Forms.ToolStripMenuItem();
+            this.mniSelectAllWellness = new System.Windows.Forms.ToolStripMenuItem();
+            this.mniDownloadSelectedWellness = new System.Windows.Forms.ToolStripMenuItem();
+            this.mniRefreshWellness = new System.Windows.Forms.ToolStripMenuItem();
+            this.mniOpenSelectedWellness = new System.Windows.Forms.ToolStripMenuItem();
+            this.mniClearCacheWellness = new System.Windows.Forms.ToolStripMenuItem();
+            this.mniLogoutWellness = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblWellness = new System.Windows.Forms.Label();
+            this.toolStripGCDownloader = new System.Windows.Forms.ToolStrip();
+            this.btnShowActivies = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.ssStatus.SuspendLayout();
             this.panelLogin.SuspendLayout();
-            this.panelMain.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.panelActivities.SuspendLayout();
+            this.panelActivityPreview.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numBatchSize)).BeginInit();
-            this.cmnMenu.SuspendLayout();
+            this.cmnActivities.SuspendLayout();
+            this.panelDailySummary.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numDailySummaryBatchSize)).BeginInit();
+            this.cmnDailySummary.SuspendLayout();
+            this.panelWellness.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numWellnessBatchSize)).BeginInit();
+            this.cmnWellness.SuspendLayout();
+            this.toolStripGCDownloader.SuspendLayout();
             this.SuspendLayout();
             // 
             // ssStatus
             // 
             this.ssStatus.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusMessage});
-            this.ssStatus.Location = new System.Drawing.Point(0, 428);
+            this.ssStatus.Location = new System.Drawing.Point(0, 439);
             this.ssStatus.Name = "ssStatus";
             this.ssStatus.Size = new System.Drawing.Size(800, 22);
             this.ssStatus.TabIndex = 4;
@@ -111,7 +156,7 @@
             this.panelLogin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelLogin.Location = new System.Drawing.Point(0, 0);
             this.panelLogin.Name = "panelLogin";
-            this.panelLogin.Size = new System.Drawing.Size(800, 450);
+            this.panelLogin.Size = new System.Drawing.Size(800, 461);
             this.panelLogin.TabIndex = 5;
             // 
             // chkSavePassword
@@ -179,57 +224,59 @@
             this.lblUsername.TabIndex = 4;
             this.lblUsername.Text = "Username: ";
             // 
-            // panelMain
+            // panelActivities
             // 
-            this.panelMain.Controls.Add(this.panel1);
-            this.panelMain.Controls.Add(this.numBatchSize);
-            this.panelMain.Controls.Add(this.lblBatchSize);
-            this.panelMain.Controls.Add(this.lstActivities);
-            this.panelMain.Controls.Add(this.btnRefresh);
-            this.panelMain.Controls.Add(this.btnNext);
-            this.panelMain.Controls.Add(this.btnPrevious);
-            this.panelMain.Controls.Add(this.lblActivities);
-            this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMain.Location = new System.Drawing.Point(0, 0);
-            this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(800, 450);
-            this.panelMain.TabIndex = 6;
+            this.panelActivities.Controls.Add(this.panelActivityPreview);
+            this.panelActivities.Controls.Add(this.numBatchSize);
+            this.panelActivities.Controls.Add(this.lblBatchSize);
+            this.panelActivities.Controls.Add(this.lstActivities);
+            this.panelActivities.Controls.Add(this.btnRefresh);
+            this.panelActivities.Controls.Add(this.btnNext);
+            this.panelActivities.Controls.Add(this.btnPrevious);
+            this.panelActivities.Controls.Add(this.lblActivities);
+            this.panelActivities.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelActivities.Location = new System.Drawing.Point(0, 0);
+            this.panelActivities.Name = "panelActivities";
+            this.panelActivities.Size = new System.Drawing.Size(800, 461);
+            this.panelActivities.TabIndex = 6;
             // 
-            // panel1
+            // panelActivityPreview
             // 
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.txtSteps);
-            this.panel1.Controls.Add(this.txtCalories);
-            this.panel1.Controls.Add(this.txtDuration);
-            this.panel1.Controls.Add(this.txtDistance);
-            this.panel1.Controls.Add(this.txtEventType);
-            this.panel1.Controls.Add(this.txtActivityType);
-            this.panel1.Controls.Add(this.txtActivityTime);
-            this.panel1.Controls.Add(this.txtActivityName);
-            this.panel1.Controls.Add(this.txtActivityID);
-            this.panel1.Controls.Add(this.lblSteps);
-            this.panel1.Controls.Add(this.lblCalories);
-            this.panel1.Controls.Add(this.lblDuration);
-            this.panel1.Controls.Add(this.lblDistance);
-            this.panel1.Controls.Add(this.lblEventType);
-            this.panel1.Controls.Add(this.lblActivityType);
-            this.panel1.Controls.Add(this.lblActivityTime);
-            this.panel1.Controls.Add(this.lblActivityName);
-            this.panel1.Controls.Add(this.lblActivityID);
-            this.panel1.Location = new System.Drawing.Point(497, 25);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(291, 368);
-            this.panel1.TabIndex = 5;
+            this.panelActivityPreview.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelActivityPreview.Controls.Add(this.lblActivityDetails);
+            this.panelActivityPreview.Controls.Add(this.txtSteps);
+            this.panelActivityPreview.Controls.Add(this.txtCalories);
+            this.panelActivityPreview.Controls.Add(this.txtDuration);
+            this.panelActivityPreview.Controls.Add(this.txtDistance);
+            this.panelActivityPreview.Controls.Add(this.txtEventType);
+            this.panelActivityPreview.Controls.Add(this.txtActivityType);
+            this.panelActivityPreview.Controls.Add(this.txtActivityTime);
+            this.panelActivityPreview.Controls.Add(this.txtActivityName);
+            this.panelActivityPreview.Controls.Add(this.txtActivityID);
+            this.panelActivityPreview.Controls.Add(this.lblSteps);
+            this.panelActivityPreview.Controls.Add(this.lblCalories);
+            this.panelActivityPreview.Controls.Add(this.lblDuration);
+            this.panelActivityPreview.Controls.Add(this.lblDistance);
+            this.panelActivityPreview.Controls.Add(this.lblEventType);
+            this.panelActivityPreview.Controls.Add(this.lblActivityType);
+            this.panelActivityPreview.Controls.Add(this.lblActivityTime);
+            this.panelActivityPreview.Controls.Add(this.lblActivityName);
+            this.panelActivityPreview.Controls.Add(this.lblActivityID);
+            this.panelActivityPreview.Location = new System.Drawing.Point(497, 36);
+            this.panelActivityPreview.Name = "panelActivityPreview";
+            this.panelActivityPreview.Size = new System.Drawing.Size(291, 368);
+            this.panelActivityPreview.TabIndex = 5;
             // 
-            // label1
+            // lblActivityDetails
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(120, 17);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Activity Details:";
+            this.lblActivityDetails.AutoSize = true;
+            this.lblActivityDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblActivityDetails.Location = new System.Drawing.Point(3, 13);
+            this.lblActivityDetails.Name = "lblActivityDetails";
+            this.lblActivityDetails.Size = new System.Drawing.Size(120, 17);
+            this.lblActivityDetails.TabIndex = 4;
+            this.lblActivityDetails.Text = "Activity Details:";
             // 
             // txtSteps
             // 
@@ -422,7 +469,9 @@
             // 
             // numBatchSize
             // 
-            this.numBatchSize.Location = new System.Drawing.Point(82, 402);
+            this.numBatchSize.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numBatchSize.Location = new System.Drawing.Point(82, 413);
             this.numBatchSize.Name = "numBatchSize";
             this.numBatchSize.Size = new System.Drawing.Size(57, 20);
             this.numBatchSize.TabIndex = 4;
@@ -430,8 +479,10 @@
             // 
             // lblBatchSize
             // 
+            this.lblBatchSize.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblBatchSize.AutoSize = true;
-            this.lblBatchSize.Location = new System.Drawing.Point(12, 404);
+            this.lblBatchSize.Location = new System.Drawing.Point(12, 415);
             this.lblBatchSize.Name = "lblBatchSize";
             this.lblBatchSize.Size = new System.Drawing.Size(64, 13);
             this.lblBatchSize.TabIndex = 3;
@@ -439,9 +490,11 @@
             // 
             // lstActivities
             // 
-            this.lstActivities.ContextMenuStrip = this.cmnMenu;
+            this.lstActivities.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lstActivities.ContextMenuStrip = this.cmnActivities;
             this.lstActivities.FormattingEnabled = true;
-            this.lstActivities.Location = new System.Drawing.Point(15, 25);
+            this.lstActivities.Location = new System.Drawing.Point(15, 36);
             this.lstActivities.Name = "lstActivities";
             this.lstActivities.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.lstActivities.Size = new System.Drawing.Size(476, 368);
@@ -449,18 +502,18 @@
             this.lstActivities.SelectedIndexChanged += new System.EventHandler(this.lstActivities_SelectedIndexChanged);
             this.lstActivities.DoubleClick += new System.EventHandler(this.lstActivities_DoubleClick);
             // 
-            // cmnMenu
+            // cmnActivities
             // 
-            this.cmnMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmnActivities.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mniSetDownloadFolder,
             this.mniSelectAll,
             this.mniDownloadSelected,
             this.mniRefresh,
             this.mniOpenSelected,
             this.mniClearCache,
-            this.mniSignout});
-            this.cmnMenu.Name = "cmnMenu";
-            this.cmnMenu.Size = new System.Drawing.Size(237, 158);
+            this.mniLogout});
+            this.cmnActivities.Name = "cmnMenu";
+            this.cmnActivities.Size = new System.Drawing.Size(237, 158);
             // 
             // mniSetDownloadFolder
             // 
@@ -502,9 +555,29 @@
             this.mniOpenSelected.Text = "&Open Selected Activity";
             this.mniOpenSelected.Click += new System.EventHandler(this.mniOpenSelected_Click);
             // 
+            // mniClearCache
+            // 
+            this.mniClearCache.Name = "mniClearCache";
+            this.mniClearCache.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.C)));
+            this.mniClearCache.Size = new System.Drawing.Size(236, 22);
+            this.mniClearCache.Text = "&Clear Cache";
+            this.mniClearCache.Click += new System.EventHandler(this.mniClearCache_Click);
+            // 
+            // mniLogout
+            // 
+            this.mniLogout.Name = "mniLogout";
+            this.mniLogout.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.Q)));
+            this.mniLogout.Size = new System.Drawing.Size(236, 22);
+            this.mniLogout.Text = "Log &Out";
+            this.mniLogout.Click += new System.EventHandler(this.mniSignout_Click);
+            // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(640, 399);
+            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefresh.Location = new System.Drawing.Point(640, 410);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(148, 23);
             this.btnRefresh.TabIndex = 1;
@@ -514,7 +587,9 @@
             // 
             // btnNext
             // 
-            this.btnNext.Location = new System.Drawing.Point(343, 399);
+            this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNext.Location = new System.Drawing.Point(343, 410);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(148, 23);
             this.btnNext.TabIndex = 1;
@@ -524,7 +599,9 @@
             // 
             // btnPrevious
             // 
-            this.btnPrevious.Location = new System.Drawing.Point(177, 399);
+            this.btnPrevious.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrevious.Location = new System.Drawing.Point(177, 410);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(148, 23);
             this.btnPrevious.TabIndex = 1;
@@ -535,38 +612,404 @@
             // lblActivities
             // 
             this.lblActivities.AutoSize = true;
+            this.lblActivities.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
             this.lblActivities.Location = new System.Drawing.Point(12, 9);
             this.lblActivities.Name = "lblActivities";
-            this.lblActivities.Size = new System.Drawing.Size(55, 13);
+            this.lblActivities.Size = new System.Drawing.Size(83, 17);
             this.lblActivities.TabIndex = 0;
             this.lblActivities.Text = "Activities: ";
             // 
-            // mniClearCache
+            // panelDailySummary
             // 
-            this.mniClearCache.Name = "mniClearCache";
-            this.mniClearCache.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            this.panelDailySummary.Controls.Add(this.numDailySummaryBatchSize);
+            this.panelDailySummary.Controls.Add(this.lblDailySummaryBatchSize);
+            this.panelDailySummary.Controls.Add(this.btnDailySummaryRefresh);
+            this.panelDailySummary.Controls.Add(this.btnDailySummaryNext);
+            this.panelDailySummary.Controls.Add(this.btnDailySummaryPrevious);
+            this.panelDailySummary.Controls.Add(this.panelDailySummaryDetails);
+            this.panelDailySummary.Controls.Add(this.lstDailySummary);
+            this.panelDailySummary.Controls.Add(this.lblDailySummary);
+            this.panelDailySummary.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelDailySummary.Location = new System.Drawing.Point(0, 0);
+            this.panelDailySummary.Name = "panelDailySummary";
+            this.panelDailySummary.Size = new System.Drawing.Size(800, 461);
+            this.panelDailySummary.TabIndex = 7;
+            // 
+            // numDailySummaryBatchSize
+            // 
+            this.numDailySummaryBatchSize.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numDailySummaryBatchSize.Location = new System.Drawing.Point(82, 413);
+            this.numDailySummaryBatchSize.Name = "numDailySummaryBatchSize";
+            this.numDailySummaryBatchSize.Size = new System.Drawing.Size(57, 20);
+            this.numDailySummaryBatchSize.TabIndex = 13;
+            // 
+            // lblDailySummaryBatchSize
+            // 
+            this.lblDailySummaryBatchSize.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDailySummaryBatchSize.AutoSize = true;
+            this.lblDailySummaryBatchSize.Location = new System.Drawing.Point(12, 415);
+            this.lblDailySummaryBatchSize.Name = "lblDailySummaryBatchSize";
+            this.lblDailySummaryBatchSize.Size = new System.Drawing.Size(64, 13);
+            this.lblDailySummaryBatchSize.TabIndex = 12;
+            this.lblDailySummaryBatchSize.Text = "Batch Size: ";
+            // 
+            // btnDailySummaryRefresh
+            // 
+            this.btnDailySummaryRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDailySummaryRefresh.Location = new System.Drawing.Point(640, 410);
+            this.btnDailySummaryRefresh.Name = "btnDailySummaryRefresh";
+            this.btnDailySummaryRefresh.Size = new System.Drawing.Size(148, 23);
+            this.btnDailySummaryRefresh.TabIndex = 9;
+            this.btnDailySummaryRefresh.Text = "Refresh Batch";
+            this.btnDailySummaryRefresh.UseVisualStyleBackColor = true;
+            // 
+            // btnDailySummaryNext
+            // 
+            this.btnDailySummaryNext.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDailySummaryNext.Location = new System.Drawing.Point(343, 410);
+            this.btnDailySummaryNext.Name = "btnDailySummaryNext";
+            this.btnDailySummaryNext.Size = new System.Drawing.Size(148, 23);
+            this.btnDailySummaryNext.TabIndex = 10;
+            this.btnDailySummaryNext.Text = "Next Batch";
+            this.btnDailySummaryNext.UseVisualStyleBackColor = true;
+            // 
+            // btnDailySummaryPrevious
+            // 
+            this.btnDailySummaryPrevious.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDailySummaryPrevious.Location = new System.Drawing.Point(177, 410);
+            this.btnDailySummaryPrevious.Name = "btnDailySummaryPrevious";
+            this.btnDailySummaryPrevious.Size = new System.Drawing.Size(148, 23);
+            this.btnDailySummaryPrevious.TabIndex = 11;
+            this.btnDailySummaryPrevious.Text = "Previous Batch";
+            this.btnDailySummaryPrevious.UseVisualStyleBackColor = true;
+            // 
+            // panelDailySummaryDetails
+            // 
+            this.panelDailySummaryDetails.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelDailySummaryDetails.Location = new System.Drawing.Point(497, 36);
+            this.panelDailySummaryDetails.Name = "panelDailySummaryDetails";
+            this.panelDailySummaryDetails.Size = new System.Drawing.Size(291, 368);
+            this.panelDailySummaryDetails.TabIndex = 8;
+            // 
+            // lstDailySummary
+            // 
+            this.lstDailySummary.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lstDailySummary.ContextMenuStrip = this.cmnDailySummary;
+            this.lstDailySummary.FormattingEnabled = true;
+            this.lstDailySummary.Location = new System.Drawing.Point(15, 36);
+            this.lstDailySummary.Name = "lstDailySummary";
+            this.lstDailySummary.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.lstDailySummary.Size = new System.Drawing.Size(476, 368);
+            this.lstDailySummary.TabIndex = 7;
+            // 
+            // cmnDailySummary
+            // 
+            this.cmnDailySummary.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mniSetDownloadFolderDailySummary,
+            this.mniSelectAllDailySummary,
+            this.mniDownloadSelectedDailySummary,
+            this.mniRefreshDailySummary,
+            this.mniOpenSelectedDailySummary,
+            this.mniClearCacheDailySummary,
+            this.mniLogoutDailySummary});
+            this.cmnDailySummary.Name = "cmnMenu";
+            this.cmnDailySummary.Size = new System.Drawing.Size(237, 158);
+            // 
+            // mniSetDownloadFolderDailySummary
+            // 
+            this.mniSetDownloadFolderDailySummary.Name = "mniSetDownloadFolderDailySummary";
+            this.mniSetDownloadFolderDailySummary.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
+            this.mniSetDownloadFolderDailySummary.Size = new System.Drawing.Size(236, 22);
+            this.mniSetDownloadFolderDailySummary.Text = "Set Download &Folder";
+            this.mniSetDownloadFolderDailySummary.Click += new System.EventHandler(this.mniSetDownloadFolderDailySummary_Click);
+            // 
+            // mniSelectAllDailySummary
+            // 
+            this.mniSelectAllDailySummary.Name = "mniSelectAllDailySummary";
+            this.mniSelectAllDailySummary.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
+            this.mniSelectAllDailySummary.Size = new System.Drawing.Size(236, 22);
+            this.mniSelectAllDailySummary.Text = "Select &All";
+            this.mniSelectAllDailySummary.Click += new System.EventHandler(this.mniSelectAllDailySummary_Click);
+            // 
+            // mniDownloadSelectedDailySummary
+            // 
+            this.mniDownloadSelectedDailySummary.Name = "mniDownloadSelectedDailySummary";
+            this.mniDownloadSelectedDailySummary.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
+            this.mniDownloadSelectedDailySummary.Size = new System.Drawing.Size(236, 22);
+            this.mniDownloadSelectedDailySummary.Text = "&Download Selected";
+            this.mniDownloadSelectedDailySummary.Click += new System.EventHandler(this.mniDownloadSelectedDailySummary_Click);
+            // 
+            // mniRefreshDailySummary
+            // 
+            this.mniRefreshDailySummary.Name = "mniRefreshDailySummary";
+            this.mniRefreshDailySummary.ShortcutKeys = System.Windows.Forms.Keys.F5;
+            this.mniRefreshDailySummary.Size = new System.Drawing.Size(236, 22);
+            this.mniRefreshDailySummary.Text = "&Refresh List";
+            this.mniRefreshDailySummary.Click += new System.EventHandler(this.mniRefreshDailySummary_Click);
+            // 
+            // mniOpenSelectedDailySummary
+            // 
+            this.mniOpenSelectedDailySummary.Name = "mniOpenSelectedDailySummary";
+            this.mniOpenSelectedDailySummary.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.mniOpenSelectedDailySummary.Size = new System.Drawing.Size(236, 22);
+            this.mniOpenSelectedDailySummary.Text = "&Open Selected Activity";
+            this.mniOpenSelectedDailySummary.Click += new System.EventHandler(this.mniOpenSelectedDailySummary_Click);
+            // 
+            // mniClearCacheDailySummary
+            // 
+            this.mniClearCacheDailySummary.Name = "mniClearCacheDailySummary";
+            this.mniClearCacheDailySummary.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.C)));
-            this.mniClearCache.Size = new System.Drawing.Size(236, 22);
-            this.mniClearCache.Text = "&Clear Cache";
-            this.mniClearCache.Click += new System.EventHandler(this.mniClearCache_Click);
+            this.mniClearCacheDailySummary.Size = new System.Drawing.Size(236, 22);
+            this.mniClearCacheDailySummary.Text = "&Clear Cache";
+            this.mniClearCacheDailySummary.Click += new System.EventHandler(this.mniClearCacheDailySummary_Click);
             // 
-            // mniSignout
+            // mniLogoutDailySummary
             // 
-            this.mniSignout.Name = "mniSignout";
-            this.mniSignout.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            this.mniLogoutDailySummary.Name = "mniLogoutDailySummary";
+            this.mniLogoutDailySummary.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.Q)));
-            this.mniSignout.Size = new System.Drawing.Size(236, 22);
-            this.mniSignout.Text = "Log &Out";
-            this.mniSignout.Click += new System.EventHandler(this.mniSignout_Click);
+            this.mniLogoutDailySummary.Size = new System.Drawing.Size(236, 22);
+            this.mniLogoutDailySummary.Text = "Log &Out";
+            this.mniLogoutDailySummary.Click += new System.EventHandler(this.mniLogoutDailySummary_Click);
+            // 
+            // lblDailySummary
+            // 
+            this.lblDailySummary.AutoSize = true;
+            this.lblDailySummary.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.lblDailySummary.Location = new System.Drawing.Point(12, 9);
+            this.lblDailySummary.Name = "lblDailySummary";
+            this.lblDailySummary.Size = new System.Drawing.Size(120, 17);
+            this.lblDailySummary.TabIndex = 6;
+            this.lblDailySummary.Text = "Daily Summary:";
+            // 
+            // panelWellness
+            // 
+            this.panelWellness.Controls.Add(this.numWellnessBatchSize);
+            this.panelWellness.Controls.Add(this.lblWellnessBatchSize);
+            this.panelWellness.Controls.Add(this.btnWellnessRefresh);
+            this.panelWellness.Controls.Add(this.btnWellnessNext);
+            this.panelWellness.Controls.Add(this.btnWellnessPrevious);
+            this.panelWellness.Controls.Add(this.panelWellnessDetail);
+            this.panelWellness.Controls.Add(this.lstWellness);
+            this.panelWellness.Controls.Add(this.lblWellness);
+            this.panelWellness.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelWellness.Location = new System.Drawing.Point(0, 0);
+            this.panelWellness.Name = "panelWellness";
+            this.panelWellness.Size = new System.Drawing.Size(800, 461);
+            this.panelWellness.TabIndex = 8;
+            // 
+            // numWellnessBatchSize
+            // 
+            this.numWellnessBatchSize.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numWellnessBatchSize.Location = new System.Drawing.Point(82, 413);
+            this.numWellnessBatchSize.Name = "numWellnessBatchSize";
+            this.numWellnessBatchSize.Size = new System.Drawing.Size(57, 20);
+            this.numWellnessBatchSize.TabIndex = 16;
+            // 
+            // lblWellnessBatchSize
+            // 
+            this.lblWellnessBatchSize.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblWellnessBatchSize.AutoSize = true;
+            this.lblWellnessBatchSize.Location = new System.Drawing.Point(12, 415);
+            this.lblWellnessBatchSize.Name = "lblWellnessBatchSize";
+            this.lblWellnessBatchSize.Size = new System.Drawing.Size(64, 13);
+            this.lblWellnessBatchSize.TabIndex = 15;
+            this.lblWellnessBatchSize.Text = "Batch Size: ";
+            // 
+            // btnWellnessRefresh
+            // 
+            this.btnWellnessRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnWellnessRefresh.Location = new System.Drawing.Point(640, 410);
+            this.btnWellnessRefresh.Name = "btnWellnessRefresh";
+            this.btnWellnessRefresh.Size = new System.Drawing.Size(148, 23);
+            this.btnWellnessRefresh.TabIndex = 12;
+            this.btnWellnessRefresh.Text = "Refresh Batch";
+            this.btnWellnessRefresh.UseVisualStyleBackColor = true;
+            // 
+            // btnWellnessNext
+            // 
+            this.btnWellnessNext.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnWellnessNext.Location = new System.Drawing.Point(343, 410);
+            this.btnWellnessNext.Name = "btnWellnessNext";
+            this.btnWellnessNext.Size = new System.Drawing.Size(148, 23);
+            this.btnWellnessNext.TabIndex = 13;
+            this.btnWellnessNext.Text = "Next Batch";
+            this.btnWellnessNext.UseVisualStyleBackColor = true;
+            // 
+            // btnWellnessPrevious
+            // 
+            this.btnWellnessPrevious.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnWellnessPrevious.Location = new System.Drawing.Point(177, 410);
+            this.btnWellnessPrevious.Name = "btnWellnessPrevious";
+            this.btnWellnessPrevious.Size = new System.Drawing.Size(148, 23);
+            this.btnWellnessPrevious.TabIndex = 14;
+            this.btnWellnessPrevious.Text = "Previous Batch";
+            this.btnWellnessPrevious.UseVisualStyleBackColor = true;
+            // 
+            // panelWellnessDetail
+            // 
+            this.panelWellnessDetail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelWellnessDetail.Location = new System.Drawing.Point(497, 36);
+            this.panelWellnessDetail.Name = "panelWellnessDetail";
+            this.panelWellnessDetail.Size = new System.Drawing.Size(291, 368);
+            this.panelWellnessDetail.TabIndex = 11;
+            // 
+            // lstWellness
+            // 
+            this.lstWellness.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lstWellness.ContextMenuStrip = this.cmnWellness;
+            this.lstWellness.FormattingEnabled = true;
+            this.lstWellness.Location = new System.Drawing.Point(15, 36);
+            this.lstWellness.Name = "lstWellness";
+            this.lstWellness.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.lstWellness.Size = new System.Drawing.Size(476, 368);
+            this.lstWellness.TabIndex = 10;
+            // 
+            // cmnWellness
+            // 
+            this.cmnWellness.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mniSetDownloadFolderWellness,
+            this.mniSelectAllWellness,
+            this.mniDownloadSelectedWellness,
+            this.mniRefreshWellness,
+            this.mniOpenSelectedWellness,
+            this.mniClearCacheWellness,
+            this.mniLogoutWellness});
+            this.cmnWellness.Name = "cmnMenu";
+            this.cmnWellness.Size = new System.Drawing.Size(237, 158);
+            // 
+            // mniSetDownloadFolderWellness
+            // 
+            this.mniSetDownloadFolderWellness.Name = "mniSetDownloadFolderWellness";
+            this.mniSetDownloadFolderWellness.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
+            this.mniSetDownloadFolderWellness.Size = new System.Drawing.Size(236, 22);
+            this.mniSetDownloadFolderWellness.Text = "Set Download &Folder";
+            this.mniSetDownloadFolderWellness.Click += new System.EventHandler(this.mniSetDownloadFolderWellness_Click);
+            // 
+            // mniSelectAllWellness
+            // 
+            this.mniSelectAllWellness.Name = "mniSelectAllWellness";
+            this.mniSelectAllWellness.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
+            this.mniSelectAllWellness.Size = new System.Drawing.Size(236, 22);
+            this.mniSelectAllWellness.Text = "Select &All";
+            this.mniSelectAllWellness.Click += new System.EventHandler(this.mniSelectAllWellness_Click);
+            // 
+            // mniDownloadSelectedWellness
+            // 
+            this.mniDownloadSelectedWellness.Name = "mniDownloadSelectedWellness";
+            this.mniDownloadSelectedWellness.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
+            this.mniDownloadSelectedWellness.Size = new System.Drawing.Size(236, 22);
+            this.mniDownloadSelectedWellness.Text = "&Download Selected";
+            this.mniDownloadSelectedWellness.Click += new System.EventHandler(this.mniDownloadSelectedWellness_Click);
+            // 
+            // mniRefreshWellness
+            // 
+            this.mniRefreshWellness.Name = "mniRefreshWellness";
+            this.mniRefreshWellness.ShortcutKeys = System.Windows.Forms.Keys.F5;
+            this.mniRefreshWellness.Size = new System.Drawing.Size(236, 22);
+            this.mniRefreshWellness.Text = "&Refresh List";
+            this.mniRefreshWellness.Click += new System.EventHandler(this.mniRefreshWellness_Click);
+            // 
+            // mniOpenSelectedWellness
+            // 
+            this.mniOpenSelectedWellness.Name = "mniOpenSelectedWellness";
+            this.mniOpenSelectedWellness.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.mniOpenSelectedWellness.Size = new System.Drawing.Size(236, 22);
+            this.mniOpenSelectedWellness.Text = "&Open Selected Activity";
+            this.mniOpenSelectedWellness.Click += new System.EventHandler(this.mniOpenSelectedWellness_Click);
+            // 
+            // mniClearCacheWellness
+            // 
+            this.mniClearCacheWellness.Name = "mniClearCacheWellness";
+            this.mniClearCacheWellness.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.C)));
+            this.mniClearCacheWellness.Size = new System.Drawing.Size(236, 22);
+            this.mniClearCacheWellness.Text = "&Clear Cache";
+            this.mniClearCacheWellness.Click += new System.EventHandler(this.mniClearCacheWellness_Click);
+            // 
+            // mniLogoutWellness
+            // 
+            this.mniLogoutWellness.Name = "mniLogoutWellness";
+            this.mniLogoutWellness.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.Q)));
+            this.mniLogoutWellness.Size = new System.Drawing.Size(236, 22);
+            this.mniLogoutWellness.Text = "Log &Out";
+            this.mniLogoutWellness.Click += new System.EventHandler(this.mniLogoutWellness_Click);
+            // 
+            // lblWellness
+            // 
+            this.lblWellness.AutoSize = true;
+            this.lblWellness.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.lblWellness.Location = new System.Drawing.Point(12, 9);
+            this.lblWellness.Name = "lblWellness";
+            this.lblWellness.Size = new System.Drawing.Size(78, 17);
+            this.lblWellness.TabIndex = 9;
+            this.lblWellness.Text = "Wellness:";
+            // 
+            // toolStripGCDownloader
+            // 
+            this.toolStripGCDownloader.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton1,
+            this.toolStripButton2,
+            this.btnShowActivies});
+            this.toolStripGCDownloader.Location = new System.Drawing.Point(0, 0);
+            this.toolStripGCDownloader.Name = "toolStripGCDownloader";
+            this.toolStripGCDownloader.Size = new System.Drawing.Size(800, 25);
+            this.toolStripGCDownloader.TabIndex = 11;
+            // 
+            // btnShowActivies
+            // 
+            this.btnShowActivies.Image = ((System.Drawing.Image)(resources.GetObject("btnShowActivies.Image")));
+            this.btnShowActivies.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnShowActivies.Name = "btnShowActivies";
+            this.btnShowActivies.Size = new System.Drawing.Size(73, 22);
+            this.btnShowActivies.Text = "Wellness";
+            this.btnShowActivies.ToolTipText = "Show Activities";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(75, 22);
+            this.toolStripButton1.Text = "Activities";
+            this.toolStripButton1.ToolTipText = "Show Activities";
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(107, 22);
+            this.toolStripButton2.Text = "Daily Summary";
+            this.toolStripButton2.ToolTipText = "Show Activities";
             // 
             // GCDownloader
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 461);
+            this.Controls.Add(this.toolStripGCDownloader);
             this.Controls.Add(this.ssStatus);
-            this.Controls.Add(this.panelMain);
+            this.Controls.Add(this.panelWellness);
             this.Controls.Add(this.panelLogin);
+            this.Controls.Add(this.panelActivities);
+            this.Controls.Add(this.panelDailySummary);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GCDownloader";
             this.Text = "GarminConnect Downloader";
@@ -576,12 +1019,22 @@
             this.ssStatus.PerformLayout();
             this.panelLogin.ResumeLayout(false);
             this.panelLogin.PerformLayout();
-            this.panelMain.ResumeLayout(false);
-            this.panelMain.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panelActivities.ResumeLayout(false);
+            this.panelActivities.PerformLayout();
+            this.panelActivityPreview.ResumeLayout(false);
+            this.panelActivityPreview.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numBatchSize)).EndInit();
-            this.cmnMenu.ResumeLayout(false);
+            this.cmnActivities.ResumeLayout(false);
+            this.panelDailySummary.ResumeLayout(false);
+            this.panelDailySummary.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numDailySummaryBatchSize)).EndInit();
+            this.cmnDailySummary.ResumeLayout(false);
+            this.panelWellness.ResumeLayout(false);
+            this.panelWellness.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numWellnessBatchSize)).EndInit();
+            this.cmnWellness.ResumeLayout(false);
+            this.toolStripGCDownloader.ResumeLayout(false);
+            this.toolStripGCDownloader.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -596,7 +1049,9 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Label lblUsername;
-        private System.Windows.Forms.Panel panelMain;
+        private System.Windows.Forms.Panel panelActivities;
+        private System.Windows.Forms.Panel panelDailySummary;
+        private System.Windows.Forms.Panel panelWellness;
         private System.Windows.Forms.ListBox lstActivities;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnPrevious;
@@ -605,11 +1060,11 @@
         private System.Windows.Forms.Label lblBatchSize;
         private System.Windows.Forms.CheckBox chkSavePassword;
         private System.Windows.Forms.CheckBox chkSaveUsername;
-        private System.Windows.Forms.ContextMenuStrip cmnMenu;
+        private System.Windows.Forms.ContextMenuStrip cmnActivities;
         private System.Windows.Forms.ToolStripMenuItem mniSetDownloadFolder;
         private System.Windows.Forms.ToolStripMenuItem mniSelectAll;
         private System.Windows.Forms.ToolStripMenuItem mniDownloadSelected;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelActivityPreview;
         private System.Windows.Forms.ToolStripMenuItem mniRefresh;
         private System.Windows.Forms.TextBox txtActivityType;
         private System.Windows.Forms.TextBox txtActivityTime;
@@ -629,11 +1084,47 @@
         private System.Windows.Forms.Label lblCalories;
         private System.Windows.Forms.Label lblDuration;
         private System.Windows.Forms.Label lblDistance;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblActivityDetails;
         private System.Windows.Forms.ToolStripMenuItem mniOpenSelected;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.ToolStripMenuItem mniClearCache;
-        private System.Windows.Forms.ToolStripMenuItem mniSignout;
+        private System.Windows.Forms.ToolStripMenuItem mniLogout;
+        private System.Windows.Forms.Panel panelDailySummaryDetails;
+        private System.Windows.Forms.ListBox lstDailySummary;
+        private System.Windows.Forms.Label lblDailySummary;
+        private System.Windows.Forms.Panel panelWellnessDetail;
+        private System.Windows.Forms.ListBox lstWellness;
+        private System.Windows.Forms.Label lblWellness;
+        private System.Windows.Forms.NumericUpDown numDailySummaryBatchSize;
+        private System.Windows.Forms.Label lblDailySummaryBatchSize;
+        private System.Windows.Forms.Button btnDailySummaryRefresh;
+        private System.Windows.Forms.Button btnDailySummaryNext;
+        private System.Windows.Forms.Button btnDailySummaryPrevious;
+        private System.Windows.Forms.NumericUpDown numWellnessBatchSize;
+        private System.Windows.Forms.Label lblWellnessBatchSize;
+        private System.Windows.Forms.Button btnWellnessRefresh;
+        private System.Windows.Forms.Button btnWellnessNext;
+        private System.Windows.Forms.Button btnWellnessPrevious;
+        private System.Windows.Forms.ContextMenuStrip cmnDailySummary;
+        private System.Windows.Forms.ToolStripMenuItem mniSetDownloadFolderDailySummary;
+        private System.Windows.Forms.ToolStripMenuItem mniSelectAllDailySummary;
+        private System.Windows.Forms.ToolStripMenuItem mniDownloadSelectedDailySummary;
+        private System.Windows.Forms.ToolStripMenuItem mniRefreshDailySummary;
+        private System.Windows.Forms.ToolStripMenuItem mniOpenSelectedDailySummary;
+        private System.Windows.Forms.ToolStripMenuItem mniClearCacheDailySummary;
+        private System.Windows.Forms.ToolStripMenuItem mniLogoutDailySummary;
+        private System.Windows.Forms.ContextMenuStrip cmnWellness;
+        private System.Windows.Forms.ToolStripMenuItem mniSetDownloadFolderWellness;
+        private System.Windows.Forms.ToolStripMenuItem mniSelectAllWellness;
+        private System.Windows.Forms.ToolStripMenuItem mniDownloadSelectedWellness;
+        private System.Windows.Forms.ToolStripMenuItem mniRefreshWellness;
+        private System.Windows.Forms.ToolStripMenuItem mniOpenSelectedWellness;
+        private System.Windows.Forms.ToolStripMenuItem mniClearCacheWellness;
+        private System.Windows.Forms.ToolStripMenuItem mniLogoutWellness;
+        private System.Windows.Forms.ToolStrip toolStripGCDownloader;
+        private System.Windows.Forms.ToolStripButton btnShowActivies;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
     }
 }
 
