@@ -111,9 +111,9 @@
             this.mniLogoutWellness = new System.Windows.Forms.ToolStripMenuItem();
             this.lblWellness = new System.Windows.Forms.Label();
             this.toolStripGCDownloader = new System.Windows.Forms.ToolStrip();
-            this.btnShowActivies = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.tsbtnActivities = new System.Windows.Forms.ToolStripButton();
+            this.tsbtnDailySummary = new System.Windows.Forms.ToolStripButton();
+            this.tsbtnWellness = new System.Windows.Forms.ToolStripButton();
             this.ssStatus.SuspendLayout();
             this.panelLogin.SuspendLayout();
             this.panelActivities.SuspendLayout();
@@ -133,7 +133,7 @@
             // 
             this.ssStatus.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusMessage});
-            this.ssStatus.Location = new System.Drawing.Point(0, 439);
+            this.ssStatus.Location = new System.Drawing.Point(0, 513);
             this.ssStatus.Name = "ssStatus";
             this.ssStatus.Size = new System.Drawing.Size(800, 22);
             this.ssStatus.TabIndex = 4;
@@ -154,15 +154,15 @@
             this.panelLogin.Controls.Add(this.lblPassword);
             this.panelLogin.Controls.Add(this.lblUsername);
             this.panelLogin.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelLogin.Location = new System.Drawing.Point(0, 0);
+            this.panelLogin.Location = new System.Drawing.Point(0, 25);
             this.panelLogin.Name = "panelLogin";
-            this.panelLogin.Size = new System.Drawing.Size(800, 461);
+            this.panelLogin.Size = new System.Drawing.Size(800, 488);
             this.panelLogin.TabIndex = 5;
             // 
             // chkSavePassword
             // 
             this.chkSavePassword.AutoSize = true;
-            this.chkSavePassword.Location = new System.Drawing.Point(434, 258);
+            this.chkSavePassword.Location = new System.Drawing.Point(434, 268);
             this.chkSavePassword.Name = "chkSavePassword";
             this.chkSavePassword.Size = new System.Drawing.Size(100, 17);
             this.chkSavePassword.TabIndex = 10;
@@ -172,7 +172,7 @@
             // chkSaveUsername
             // 
             this.chkSaveUsername.AutoSize = true;
-            this.chkSaveUsername.Location = new System.Drawing.Point(333, 258);
+            this.chkSaveUsername.Location = new System.Drawing.Point(333, 268);
             this.chkSaveUsername.Name = "chkSaveUsername";
             this.chkSaveUsername.Size = new System.Drawing.Size(102, 17);
             this.chkSaveUsername.TabIndex = 9;
@@ -181,7 +181,7 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(333, 229);
+            this.btnLogin.Location = new System.Drawing.Point(333, 239);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(201, 23);
             this.btnLogin.TabIndex = 8;
@@ -191,7 +191,7 @@
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(333, 176);
+            this.txtUsername.Location = new System.Drawing.Point(333, 186);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(201, 20);
             this.txtUsername.TabIndex = 5;
@@ -199,7 +199,7 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(333, 202);
+            this.txtPassword.Location = new System.Drawing.Point(333, 212);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(201, 20);
@@ -209,7 +209,7 @@
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(268, 205);
+            this.lblPassword.Location = new System.Drawing.Point(268, 215);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(59, 13);
             this.lblPassword.TabIndex = 6;
@@ -218,7 +218,7 @@
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(266, 176);
+            this.lblUsername.Location = new System.Drawing.Point(266, 186);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(61, 13);
             this.lblUsername.TabIndex = 4;
@@ -235,9 +235,9 @@
             this.panelActivities.Controls.Add(this.btnPrevious);
             this.panelActivities.Controls.Add(this.lblActivities);
             this.panelActivities.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelActivities.Location = new System.Drawing.Point(0, 0);
+            this.panelActivities.Location = new System.Drawing.Point(0, 25);
             this.panelActivities.Name = "panelActivities";
-            this.panelActivities.Size = new System.Drawing.Size(800, 461);
+            this.panelActivities.Size = new System.Drawing.Size(800, 488);
             this.panelActivities.TabIndex = 6;
             // 
             // panelActivityPreview
@@ -263,7 +263,7 @@
             this.panelActivityPreview.Controls.Add(this.lblActivityTime);
             this.panelActivityPreview.Controls.Add(this.lblActivityName);
             this.panelActivityPreview.Controls.Add(this.lblActivityID);
-            this.panelActivityPreview.Location = new System.Drawing.Point(497, 36);
+            this.panelActivityPreview.Location = new System.Drawing.Point(497, 63);
             this.panelActivityPreview.Name = "panelActivityPreview";
             this.panelActivityPreview.Size = new System.Drawing.Size(291, 368);
             this.panelActivityPreview.TabIndex = 5;
@@ -471,7 +471,7 @@
             // 
             this.numBatchSize.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.numBatchSize.Location = new System.Drawing.Point(82, 413);
+            this.numBatchSize.Location = new System.Drawing.Point(82, 440);
             this.numBatchSize.Name = "numBatchSize";
             this.numBatchSize.Size = new System.Drawing.Size(57, 20);
             this.numBatchSize.TabIndex = 4;
@@ -482,7 +482,7 @@
             this.lblBatchSize.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblBatchSize.AutoSize = true;
-            this.lblBatchSize.Location = new System.Drawing.Point(12, 415);
+            this.lblBatchSize.Location = new System.Drawing.Point(12, 442);
             this.lblBatchSize.Name = "lblBatchSize";
             this.lblBatchSize.Size = new System.Drawing.Size(64, 13);
             this.lblBatchSize.TabIndex = 3;
@@ -494,7 +494,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lstActivities.ContextMenuStrip = this.cmnActivities;
             this.lstActivities.FormattingEnabled = true;
-            this.lstActivities.Location = new System.Drawing.Point(15, 36);
+            this.lstActivities.Location = new System.Drawing.Point(15, 63);
             this.lstActivities.Name = "lstActivities";
             this.lstActivities.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.lstActivities.Size = new System.Drawing.Size(476, 368);
@@ -577,7 +577,7 @@
             // 
             this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRefresh.Location = new System.Drawing.Point(640, 410);
+            this.btnRefresh.Location = new System.Drawing.Point(640, 437);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(148, 23);
             this.btnRefresh.TabIndex = 1;
@@ -589,7 +589,7 @@
             // 
             this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNext.Location = new System.Drawing.Point(343, 410);
+            this.btnNext.Location = new System.Drawing.Point(343, 437);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(148, 23);
             this.btnNext.TabIndex = 1;
@@ -601,7 +601,7 @@
             // 
             this.btnPrevious.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPrevious.Location = new System.Drawing.Point(177, 410);
+            this.btnPrevious.Location = new System.Drawing.Point(177, 437);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(148, 23);
             this.btnPrevious.TabIndex = 1;
@@ -611,9 +611,10 @@
             // 
             // lblActivities
             // 
+            this.lblActivities.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblActivities.AutoSize = true;
             this.lblActivities.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.lblActivities.Location = new System.Drawing.Point(12, 9);
+            this.lblActivities.Location = new System.Drawing.Point(12, 39);
             this.lblActivities.Name = "lblActivities";
             this.lblActivities.Size = new System.Drawing.Size(83, 17);
             this.lblActivities.TabIndex = 0;
@@ -630,16 +631,16 @@
             this.panelDailySummary.Controls.Add(this.lstDailySummary);
             this.panelDailySummary.Controls.Add(this.lblDailySummary);
             this.panelDailySummary.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDailySummary.Location = new System.Drawing.Point(0, 0);
+            this.panelDailySummary.Location = new System.Drawing.Point(0, 25);
             this.panelDailySummary.Name = "panelDailySummary";
-            this.panelDailySummary.Size = new System.Drawing.Size(800, 461);
+            this.panelDailySummary.Size = new System.Drawing.Size(800, 510);
             this.panelDailySummary.TabIndex = 7;
             // 
             // numDailySummaryBatchSize
             // 
             this.numDailySummaryBatchSize.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.numDailySummaryBatchSize.Location = new System.Drawing.Point(82, 413);
+            this.numDailySummaryBatchSize.Location = new System.Drawing.Point(82, 462);
             this.numDailySummaryBatchSize.Name = "numDailySummaryBatchSize";
             this.numDailySummaryBatchSize.Size = new System.Drawing.Size(57, 20);
             this.numDailySummaryBatchSize.TabIndex = 13;
@@ -649,7 +650,7 @@
             this.lblDailySummaryBatchSize.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDailySummaryBatchSize.AutoSize = true;
-            this.lblDailySummaryBatchSize.Location = new System.Drawing.Point(12, 415);
+            this.lblDailySummaryBatchSize.Location = new System.Drawing.Point(12, 464);
             this.lblDailySummaryBatchSize.Name = "lblDailySummaryBatchSize";
             this.lblDailySummaryBatchSize.Size = new System.Drawing.Size(64, 13);
             this.lblDailySummaryBatchSize.TabIndex = 12;
@@ -659,7 +660,7 @@
             // 
             this.btnDailySummaryRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDailySummaryRefresh.Location = new System.Drawing.Point(640, 410);
+            this.btnDailySummaryRefresh.Location = new System.Drawing.Point(640, 459);
             this.btnDailySummaryRefresh.Name = "btnDailySummaryRefresh";
             this.btnDailySummaryRefresh.Size = new System.Drawing.Size(148, 23);
             this.btnDailySummaryRefresh.TabIndex = 9;
@@ -670,7 +671,7 @@
             // 
             this.btnDailySummaryNext.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDailySummaryNext.Location = new System.Drawing.Point(343, 410);
+            this.btnDailySummaryNext.Location = new System.Drawing.Point(343, 459);
             this.btnDailySummaryNext.Name = "btnDailySummaryNext";
             this.btnDailySummaryNext.Size = new System.Drawing.Size(148, 23);
             this.btnDailySummaryNext.TabIndex = 10;
@@ -681,7 +682,7 @@
             // 
             this.btnDailySummaryPrevious.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDailySummaryPrevious.Location = new System.Drawing.Point(177, 410);
+            this.btnDailySummaryPrevious.Location = new System.Drawing.Point(177, 459);
             this.btnDailySummaryPrevious.Name = "btnDailySummaryPrevious";
             this.btnDailySummaryPrevious.Size = new System.Drawing.Size(148, 23);
             this.btnDailySummaryPrevious.TabIndex = 11;
@@ -692,7 +693,7 @@
             // 
             this.panelDailySummaryDetails.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelDailySummaryDetails.Location = new System.Drawing.Point(497, 36);
+            this.panelDailySummaryDetails.Location = new System.Drawing.Point(497, 85);
             this.panelDailySummaryDetails.Name = "panelDailySummaryDetails";
             this.panelDailySummaryDetails.Size = new System.Drawing.Size(291, 368);
             this.panelDailySummaryDetails.TabIndex = 8;
@@ -703,11 +704,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lstDailySummary.ContextMenuStrip = this.cmnDailySummary;
             this.lstDailySummary.FormattingEnabled = true;
-            this.lstDailySummary.Location = new System.Drawing.Point(15, 36);
+            this.lstDailySummary.Location = new System.Drawing.Point(15, 85);
             this.lstDailySummary.Name = "lstDailySummary";
             this.lstDailySummary.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.lstDailySummary.Size = new System.Drawing.Size(476, 368);
             this.lstDailySummary.TabIndex = 7;
+            this.lstDailySummary.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lstDailySummary_KeyDown);
             // 
             // cmnDailySummary
             // 
@@ -782,9 +784,10 @@
             // 
             // lblDailySummary
             // 
+            this.lblDailySummary.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblDailySummary.AutoSize = true;
             this.lblDailySummary.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.lblDailySummary.Location = new System.Drawing.Point(12, 9);
+            this.lblDailySummary.Location = new System.Drawing.Point(12, 61);
             this.lblDailySummary.Name = "lblDailySummary";
             this.lblDailySummary.Size = new System.Drawing.Size(120, 17);
             this.lblDailySummary.TabIndex = 6;
@@ -801,16 +804,16 @@
             this.panelWellness.Controls.Add(this.lstWellness);
             this.panelWellness.Controls.Add(this.lblWellness);
             this.panelWellness.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelWellness.Location = new System.Drawing.Point(0, 0);
+            this.panelWellness.Location = new System.Drawing.Point(0, 25);
             this.panelWellness.Name = "panelWellness";
-            this.panelWellness.Size = new System.Drawing.Size(800, 461);
+            this.panelWellness.Size = new System.Drawing.Size(800, 510);
             this.panelWellness.TabIndex = 8;
             // 
             // numWellnessBatchSize
             // 
             this.numWellnessBatchSize.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.numWellnessBatchSize.Location = new System.Drawing.Point(82, 413);
+            this.numWellnessBatchSize.Location = new System.Drawing.Point(82, 462);
             this.numWellnessBatchSize.Name = "numWellnessBatchSize";
             this.numWellnessBatchSize.Size = new System.Drawing.Size(57, 20);
             this.numWellnessBatchSize.TabIndex = 16;
@@ -820,7 +823,7 @@
             this.lblWellnessBatchSize.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblWellnessBatchSize.AutoSize = true;
-            this.lblWellnessBatchSize.Location = new System.Drawing.Point(12, 415);
+            this.lblWellnessBatchSize.Location = new System.Drawing.Point(12, 464);
             this.lblWellnessBatchSize.Name = "lblWellnessBatchSize";
             this.lblWellnessBatchSize.Size = new System.Drawing.Size(64, 13);
             this.lblWellnessBatchSize.TabIndex = 15;
@@ -830,7 +833,7 @@
             // 
             this.btnWellnessRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnWellnessRefresh.Location = new System.Drawing.Point(640, 410);
+            this.btnWellnessRefresh.Location = new System.Drawing.Point(640, 459);
             this.btnWellnessRefresh.Name = "btnWellnessRefresh";
             this.btnWellnessRefresh.Size = new System.Drawing.Size(148, 23);
             this.btnWellnessRefresh.TabIndex = 12;
@@ -841,7 +844,7 @@
             // 
             this.btnWellnessNext.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnWellnessNext.Location = new System.Drawing.Point(343, 410);
+            this.btnWellnessNext.Location = new System.Drawing.Point(343, 459);
             this.btnWellnessNext.Name = "btnWellnessNext";
             this.btnWellnessNext.Size = new System.Drawing.Size(148, 23);
             this.btnWellnessNext.TabIndex = 13;
@@ -852,7 +855,7 @@
             // 
             this.btnWellnessPrevious.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnWellnessPrevious.Location = new System.Drawing.Point(177, 410);
+            this.btnWellnessPrevious.Location = new System.Drawing.Point(177, 459);
             this.btnWellnessPrevious.Name = "btnWellnessPrevious";
             this.btnWellnessPrevious.Size = new System.Drawing.Size(148, 23);
             this.btnWellnessPrevious.TabIndex = 14;
@@ -863,7 +866,7 @@
             // 
             this.panelWellnessDetail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelWellnessDetail.Location = new System.Drawing.Point(497, 36);
+            this.panelWellnessDetail.Location = new System.Drawing.Point(497, 85);
             this.panelWellnessDetail.Name = "panelWellnessDetail";
             this.panelWellnessDetail.Size = new System.Drawing.Size(291, 368);
             this.panelWellnessDetail.TabIndex = 11;
@@ -874,7 +877,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lstWellness.ContextMenuStrip = this.cmnWellness;
             this.lstWellness.FormattingEnabled = true;
-            this.lstWellness.Location = new System.Drawing.Point(15, 36);
+            this.lstWellness.Location = new System.Drawing.Point(15, 85);
             this.lstWellness.Name = "lstWellness";
             this.lstWellness.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.lstWellness.Size = new System.Drawing.Size(476, 368);
@@ -953,9 +956,10 @@
             // 
             // lblWellness
             // 
+            this.lblWellness.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblWellness.AutoSize = true;
             this.lblWellness.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.lblWellness.Location = new System.Drawing.Point(12, 9);
+            this.lblWellness.Location = new System.Drawing.Point(12, 62);
             this.lblWellness.Name = "lblWellness";
             this.lblWellness.Size = new System.Drawing.Size(78, 17);
             this.lblWellness.TabIndex = 9;
@@ -964,52 +968,52 @@
             // toolStripGCDownloader
             // 
             this.toolStripGCDownloader.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripButton2,
-            this.btnShowActivies});
+            this.tsbtnActivities,
+            this.tsbtnDailySummary,
+            this.tsbtnWellness});
             this.toolStripGCDownloader.Location = new System.Drawing.Point(0, 0);
             this.toolStripGCDownloader.Name = "toolStripGCDownloader";
             this.toolStripGCDownloader.Size = new System.Drawing.Size(800, 25);
             this.toolStripGCDownloader.TabIndex = 11;
             // 
-            // btnShowActivies
+            // tsbtnActivities
             // 
-            this.btnShowActivies.Image = ((System.Drawing.Image)(resources.GetObject("btnShowActivies.Image")));
-            this.btnShowActivies.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnShowActivies.Name = "btnShowActivies";
-            this.btnShowActivies.Size = new System.Drawing.Size(73, 22);
-            this.btnShowActivies.Text = "Wellness";
-            this.btnShowActivies.ToolTipText = "Show Activities";
+            this.tsbtnActivities.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnActivities.Image")));
+            this.tsbtnActivities.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtnActivities.Name = "tsbtnActivities";
+            this.tsbtnActivities.Size = new System.Drawing.Size(75, 22);
+            this.tsbtnActivities.Text = "Activities";
+            this.tsbtnActivities.ToolTipText = "Show Activities";
             // 
-            // toolStripButton1
+            // tsbtnDailySummary
             // 
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(75, 22);
-            this.toolStripButton1.Text = "Activities";
-            this.toolStripButton1.ToolTipText = "Show Activities";
+            this.tsbtnDailySummary.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnDailySummary.Image")));
+            this.tsbtnDailySummary.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtnDailySummary.Name = "tsbtnDailySummary";
+            this.tsbtnDailySummary.Size = new System.Drawing.Size(107, 22);
+            this.tsbtnDailySummary.Text = "Daily Summary";
+            this.tsbtnDailySummary.ToolTipText = "Show Activities";
             // 
-            // toolStripButton2
+            // tsbtnWellness
             // 
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(107, 22);
-            this.toolStripButton2.Text = "Daily Summary";
-            this.toolStripButton2.ToolTipText = "Show Activities";
+            this.tsbtnWellness.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnWellness.Image")));
+            this.tsbtnWellness.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtnWellness.Name = "tsbtnWellness";
+            this.tsbtnWellness.Size = new System.Drawing.Size(73, 22);
+            this.tsbtnWellness.Text = "Wellness";
+            this.tsbtnWellness.ToolTipText = "Show Activities";
             // 
             // GCDownloader
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 461);
-            this.Controls.Add(this.toolStripGCDownloader);
-            this.Controls.Add(this.ssStatus);
-            this.Controls.Add(this.panelWellness);
-            this.Controls.Add(this.panelLogin);
+            this.ClientSize = new System.Drawing.Size(800, 535);
             this.Controls.Add(this.panelActivities);
+            this.Controls.Add(this.panelLogin);
+            this.Controls.Add(this.ssStatus);
             this.Controls.Add(this.panelDailySummary);
+            this.Controls.Add(this.panelWellness);
+            this.Controls.Add(this.toolStripGCDownloader);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GCDownloader";
             this.Text = "GarminConnect Downloader";
@@ -1122,9 +1126,9 @@
         private System.Windows.Forms.ToolStripMenuItem mniClearCacheWellness;
         private System.Windows.Forms.ToolStripMenuItem mniLogoutWellness;
         private System.Windows.Forms.ToolStrip toolStripGCDownloader;
-        private System.Windows.Forms.ToolStripButton btnShowActivies;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton tsbtnWellness;
+        private System.Windows.Forms.ToolStripButton tsbtnActivities;
+        private System.Windows.Forms.ToolStripButton tsbtnDailySummary;
     }
 }
 

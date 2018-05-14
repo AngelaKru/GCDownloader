@@ -243,6 +243,8 @@ namespace GCDownloader
             InitializeComponent();
             _cookieJar = new CookieContainer();
 
+            toolStripGCDownloader.SendToBack();
+            toolStripGCDownloader.Visible = false;
             panelLogin.BringToFront();
             if (txtUsername.Text.Length > 0) txtPassword.Focus();
             else txtUsername.Focus();
@@ -250,6 +252,7 @@ namespace GCDownloader
 
         private void GCDownloader_Load(object sender, EventArgs e)
         {
+            toolStripGCDownloader.SendToBack();
             SetStatus(message: "Welcome to GCDownloader. Please login to continue.");
             numBatchSize.Value = ActivityBatchSize;
             DoRegCheck();
@@ -539,9 +542,12 @@ namespace GCDownloader
 
             if (SignInStatus)
             {
+                toolStripGCDownloader.SendToBack();
                 loginStatus = LoginStatus.LoggedIn;
                 DoRegCheck(Username, Password);
                 ActivityBatchStart = 0;
+                toolStripGCDownloader.SendToBack();
+                toolStripGCDownloader.Visible = true;
                 panelActivities.BringToFront();
                 GetActivityList(ActivityBatchStart, ActivityBatchSize);
                 if (lstActivities.Items.Count > 0) lstActivities.SetSelected(0, true);
@@ -560,6 +566,8 @@ namespace GCDownloader
         {
             SignOut();
             SetStatus("Signed out.");
+            toolStripGCDownloader.SendToBack();
+            toolStripGCDownloader.Visible = false;
             panelLogin.BringToFront();
             txtPassword.Text = "";
             DoRegCheck();
@@ -761,6 +769,8 @@ namespace GCDownloader
             catch
             {
                 SignOut();
+                toolStripGCDownloader.SendToBack();
+                toolStripGCDownloader.Visible = false;
                 panelLogin.BringToFront();
                 txtPassword.Text = "";
                 txtPassword.Focus();
@@ -820,6 +830,12 @@ namespace GCDownloader
             {
                 return false;
             }
+        }
+
+        private void lstDailySummary_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.C && e.Modifiers == Keys.Control && lstActivities.SelectedItems.Count == 1)
+                Clipboard.SetText(((GCActivity)lstActivities.SelectedItem).ActivityName);
         }
 
         #endregion
@@ -898,6 +914,7 @@ namespace GCDownloader
         #region Wellness
 
         #endregion
+
         #endregion
     }
 
