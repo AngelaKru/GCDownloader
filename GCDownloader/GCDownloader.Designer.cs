@@ -133,7 +133,7 @@
             // 
             this.ssStatus.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusMessage});
-            this.ssStatus.Location = new System.Drawing.Point(0, 513);
+            this.ssStatus.Location = new System.Drawing.Point(0, 485);
             this.ssStatus.Name = "ssStatus";
             this.ssStatus.Size = new System.Drawing.Size(800, 22);
             this.ssStatus.TabIndex = 4;
@@ -156,7 +156,7 @@
             this.panelLogin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelLogin.Location = new System.Drawing.Point(0, 25);
             this.panelLogin.Name = "panelLogin";
-            this.panelLogin.Size = new System.Drawing.Size(800, 488);
+            this.panelLogin.Size = new System.Drawing.Size(800, 460);
             this.panelLogin.TabIndex = 5;
             // 
             // chkSavePassword
@@ -237,7 +237,7 @@
             this.panelActivities.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelActivities.Location = new System.Drawing.Point(0, 25);
             this.panelActivities.Name = "panelActivities";
-            this.panelActivities.Size = new System.Drawing.Size(800, 488);
+            this.panelActivities.Size = new System.Drawing.Size(800, 460);
             this.panelActivities.TabIndex = 6;
             // 
             // panelActivityPreview
@@ -263,7 +263,7 @@
             this.panelActivityPreview.Controls.Add(this.lblActivityTime);
             this.panelActivityPreview.Controls.Add(this.lblActivityName);
             this.panelActivityPreview.Controls.Add(this.lblActivityID);
-            this.panelActivityPreview.Location = new System.Drawing.Point(497, 63);
+            this.panelActivityPreview.Location = new System.Drawing.Point(497, 35);
             this.panelActivityPreview.Name = "panelActivityPreview";
             this.panelActivityPreview.Size = new System.Drawing.Size(291, 368);
             this.panelActivityPreview.TabIndex = 5;
@@ -471,7 +471,7 @@
             // 
             this.numBatchSize.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.numBatchSize.Location = new System.Drawing.Point(82, 440);
+            this.numBatchSize.Location = new System.Drawing.Point(82, 412);
             this.numBatchSize.Name = "numBatchSize";
             this.numBatchSize.Size = new System.Drawing.Size(57, 20);
             this.numBatchSize.TabIndex = 4;
@@ -482,7 +482,7 @@
             this.lblBatchSize.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblBatchSize.AutoSize = true;
-            this.lblBatchSize.Location = new System.Drawing.Point(12, 442);
+            this.lblBatchSize.Location = new System.Drawing.Point(12, 414);
             this.lblBatchSize.Name = "lblBatchSize";
             this.lblBatchSize.Size = new System.Drawing.Size(64, 13);
             this.lblBatchSize.TabIndex = 3;
@@ -494,7 +494,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lstActivities.ContextMenuStrip = this.cmnActivities;
             this.lstActivities.FormattingEnabled = true;
-            this.lstActivities.Location = new System.Drawing.Point(15, 63);
+            this.lstActivities.Location = new System.Drawing.Point(15, 35);
             this.lstActivities.Name = "lstActivities";
             this.lstActivities.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.lstActivities.Size = new System.Drawing.Size(476, 368);
@@ -577,7 +577,7 @@
             // 
             this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRefresh.Location = new System.Drawing.Point(640, 437);
+            this.btnRefresh.Location = new System.Drawing.Point(640, 409);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(148, 23);
             this.btnRefresh.TabIndex = 1;
@@ -589,7 +589,7 @@
             // 
             this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNext.Location = new System.Drawing.Point(343, 437);
+            this.btnNext.Location = new System.Drawing.Point(343, 409);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(148, 23);
             this.btnNext.TabIndex = 1;
@@ -601,7 +601,7 @@
             // 
             this.btnPrevious.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPrevious.Location = new System.Drawing.Point(177, 437);
+            this.btnPrevious.Location = new System.Drawing.Point(177, 409);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(148, 23);
             this.btnPrevious.TabIndex = 1;
@@ -614,7 +614,7 @@
             this.lblActivities.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblActivities.AutoSize = true;
             this.lblActivities.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.lblActivities.Location = new System.Drawing.Point(12, 39);
+            this.lblActivities.Location = new System.Drawing.Point(12, 11);
             this.lblActivities.Name = "lblActivities";
             this.lblActivities.Size = new System.Drawing.Size(83, 17);
             this.lblActivities.TabIndex = 0;
@@ -633,14 +633,14 @@
             this.panelDailySummary.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDailySummary.Location = new System.Drawing.Point(0, 25);
             this.panelDailySummary.Name = "panelDailySummary";
-            this.panelDailySummary.Size = new System.Drawing.Size(800, 510);
+            this.panelDailySummary.Size = new System.Drawing.Size(800, 482);
             this.panelDailySummary.TabIndex = 7;
             // 
             // numDailySummaryBatchSize
             // 
             this.numDailySummaryBatchSize.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.numDailySummaryBatchSize.Location = new System.Drawing.Point(82, 462);
+            this.numDailySummaryBatchSize.Location = new System.Drawing.Point(82, 434);
             this.numDailySummaryBatchSize.Name = "numDailySummaryBatchSize";
             this.numDailySummaryBatchSize.Size = new System.Drawing.Size(57, 20);
             this.numDailySummaryBatchSize.TabIndex = 13;
@@ -650,7 +650,7 @@
             this.lblDailySummaryBatchSize.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDailySummaryBatchSize.AutoSize = true;
-            this.lblDailySummaryBatchSize.Location = new System.Drawing.Point(12, 464);
+            this.lblDailySummaryBatchSize.Location = new System.Drawing.Point(12, 436);
             this.lblDailySummaryBatchSize.Name = "lblDailySummaryBatchSize";
             this.lblDailySummaryBatchSize.Size = new System.Drawing.Size(64, 13);
             this.lblDailySummaryBatchSize.TabIndex = 12;
@@ -660,7 +660,7 @@
             // 
             this.btnDailySummaryRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDailySummaryRefresh.Location = new System.Drawing.Point(640, 459);
+            this.btnDailySummaryRefresh.Location = new System.Drawing.Point(640, 431);
             this.btnDailySummaryRefresh.Name = "btnDailySummaryRefresh";
             this.btnDailySummaryRefresh.Size = new System.Drawing.Size(148, 23);
             this.btnDailySummaryRefresh.TabIndex = 9;
@@ -671,7 +671,7 @@
             // 
             this.btnDailySummaryNext.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDailySummaryNext.Location = new System.Drawing.Point(343, 459);
+            this.btnDailySummaryNext.Location = new System.Drawing.Point(343, 431);
             this.btnDailySummaryNext.Name = "btnDailySummaryNext";
             this.btnDailySummaryNext.Size = new System.Drawing.Size(148, 23);
             this.btnDailySummaryNext.TabIndex = 10;
@@ -682,7 +682,7 @@
             // 
             this.btnDailySummaryPrevious.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDailySummaryPrevious.Location = new System.Drawing.Point(177, 459);
+            this.btnDailySummaryPrevious.Location = new System.Drawing.Point(177, 431);
             this.btnDailySummaryPrevious.Name = "btnDailySummaryPrevious";
             this.btnDailySummaryPrevious.Size = new System.Drawing.Size(148, 23);
             this.btnDailySummaryPrevious.TabIndex = 11;
@@ -693,7 +693,7 @@
             // 
             this.panelDailySummaryDetails.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelDailySummaryDetails.Location = new System.Drawing.Point(497, 85);
+            this.panelDailySummaryDetails.Location = new System.Drawing.Point(497, 57);
             this.panelDailySummaryDetails.Name = "panelDailySummaryDetails";
             this.panelDailySummaryDetails.Size = new System.Drawing.Size(291, 368);
             this.panelDailySummaryDetails.TabIndex = 8;
@@ -704,7 +704,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lstDailySummary.ContextMenuStrip = this.cmnDailySummary;
             this.lstDailySummary.FormattingEnabled = true;
-            this.lstDailySummary.Location = new System.Drawing.Point(15, 85);
+            this.lstDailySummary.Location = new System.Drawing.Point(15, 57);
             this.lstDailySummary.Name = "lstDailySummary";
             this.lstDailySummary.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.lstDailySummary.Size = new System.Drawing.Size(476, 368);
@@ -787,7 +787,7 @@
             this.lblDailySummary.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblDailySummary.AutoSize = true;
             this.lblDailySummary.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.lblDailySummary.Location = new System.Drawing.Point(12, 61);
+            this.lblDailySummary.Location = new System.Drawing.Point(12, 33);
             this.lblDailySummary.Name = "lblDailySummary";
             this.lblDailySummary.Size = new System.Drawing.Size(120, 17);
             this.lblDailySummary.TabIndex = 6;
@@ -806,14 +806,14 @@
             this.panelWellness.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelWellness.Location = new System.Drawing.Point(0, 25);
             this.panelWellness.Name = "panelWellness";
-            this.panelWellness.Size = new System.Drawing.Size(800, 510);
+            this.panelWellness.Size = new System.Drawing.Size(800, 482);
             this.panelWellness.TabIndex = 8;
             // 
             // numWellnessBatchSize
             // 
             this.numWellnessBatchSize.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.numWellnessBatchSize.Location = new System.Drawing.Point(82, 462);
+            this.numWellnessBatchSize.Location = new System.Drawing.Point(82, 434);
             this.numWellnessBatchSize.Name = "numWellnessBatchSize";
             this.numWellnessBatchSize.Size = new System.Drawing.Size(57, 20);
             this.numWellnessBatchSize.TabIndex = 16;
@@ -823,7 +823,7 @@
             this.lblWellnessBatchSize.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblWellnessBatchSize.AutoSize = true;
-            this.lblWellnessBatchSize.Location = new System.Drawing.Point(12, 464);
+            this.lblWellnessBatchSize.Location = new System.Drawing.Point(12, 436);
             this.lblWellnessBatchSize.Name = "lblWellnessBatchSize";
             this.lblWellnessBatchSize.Size = new System.Drawing.Size(64, 13);
             this.lblWellnessBatchSize.TabIndex = 15;
@@ -833,7 +833,7 @@
             // 
             this.btnWellnessRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnWellnessRefresh.Location = new System.Drawing.Point(640, 459);
+            this.btnWellnessRefresh.Location = new System.Drawing.Point(640, 431);
             this.btnWellnessRefresh.Name = "btnWellnessRefresh";
             this.btnWellnessRefresh.Size = new System.Drawing.Size(148, 23);
             this.btnWellnessRefresh.TabIndex = 12;
@@ -844,7 +844,7 @@
             // 
             this.btnWellnessNext.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnWellnessNext.Location = new System.Drawing.Point(343, 459);
+            this.btnWellnessNext.Location = new System.Drawing.Point(343, 431);
             this.btnWellnessNext.Name = "btnWellnessNext";
             this.btnWellnessNext.Size = new System.Drawing.Size(148, 23);
             this.btnWellnessNext.TabIndex = 13;
@@ -855,7 +855,7 @@
             // 
             this.btnWellnessPrevious.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnWellnessPrevious.Location = new System.Drawing.Point(177, 459);
+            this.btnWellnessPrevious.Location = new System.Drawing.Point(177, 431);
             this.btnWellnessPrevious.Name = "btnWellnessPrevious";
             this.btnWellnessPrevious.Size = new System.Drawing.Size(148, 23);
             this.btnWellnessPrevious.TabIndex = 14;
@@ -866,7 +866,7 @@
             // 
             this.panelWellnessDetail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelWellnessDetail.Location = new System.Drawing.Point(497, 85);
+            this.panelWellnessDetail.Location = new System.Drawing.Point(497, 57);
             this.panelWellnessDetail.Name = "panelWellnessDetail";
             this.panelWellnessDetail.Size = new System.Drawing.Size(291, 368);
             this.panelWellnessDetail.TabIndex = 11;
@@ -877,7 +877,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lstWellness.ContextMenuStrip = this.cmnWellness;
             this.lstWellness.FormattingEnabled = true;
-            this.lstWellness.Location = new System.Drawing.Point(15, 85);
+            this.lstWellness.Location = new System.Drawing.Point(15, 57);
             this.lstWellness.Name = "lstWellness";
             this.lstWellness.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.lstWellness.Size = new System.Drawing.Size(476, 368);
@@ -959,7 +959,7 @@
             this.lblWellness.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblWellness.AutoSize = true;
             this.lblWellness.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.lblWellness.Location = new System.Drawing.Point(12, 62);
+            this.lblWellness.Location = new System.Drawing.Point(12, 34);
             this.lblWellness.Name = "lblWellness";
             this.lblWellness.Size = new System.Drawing.Size(78, 17);
             this.lblWellness.TabIndex = 9;
@@ -1007,7 +1007,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 535);
+            this.ClientSize = new System.Drawing.Size(800, 507);
             this.Controls.Add(this.panelActivities);
             this.Controls.Add(this.panelLogin);
             this.Controls.Add(this.ssStatus);
