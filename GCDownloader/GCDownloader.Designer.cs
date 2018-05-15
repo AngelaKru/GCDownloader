@@ -114,6 +114,7 @@
             this.tsbtnActivities = new System.Windows.Forms.ToolStripButton();
             this.tsbtnDailySummary = new System.Windows.Forms.ToolStripButton();
             this.tsbtnWellness = new System.Windows.Forms.ToolStripButton();
+            this.mniSendToDailyMile = new System.Windows.Forms.ToolStripMenuItem();
             this.ssStatus.SuspendLayout();
             this.panelLogin.SuspendLayout();
             this.panelActivities.SuspendLayout();
@@ -501,6 +502,7 @@
             this.lstActivities.TabIndex = 2;
             this.lstActivities.SelectedIndexChanged += new System.EventHandler(this.lstActivities_SelectedIndexChanged);
             this.lstActivities.DoubleClick += new System.EventHandler(this.lstActivities_DoubleClick);
+            this.lstActivities.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lstActivities_KeyDown);
             // 
             // cmnActivities
             // 
@@ -510,16 +512,17 @@
             this.mniDownloadSelected,
             this.mniRefresh,
             this.mniOpenSelected,
+            this.mniSendToDailyMile,
             this.mniClearCache,
             this.mniLogout});
             this.cmnActivities.Name = "cmnMenu";
-            this.cmnActivities.Size = new System.Drawing.Size(237, 158);
+            this.cmnActivities.Size = new System.Drawing.Size(244, 202);
             // 
             // mniSetDownloadFolder
             // 
             this.mniSetDownloadFolder.Name = "mniSetDownloadFolder";
             this.mniSetDownloadFolder.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
-            this.mniSetDownloadFolder.Size = new System.Drawing.Size(236, 22);
+            this.mniSetDownloadFolder.Size = new System.Drawing.Size(243, 22);
             this.mniSetDownloadFolder.Text = "Set Download &Folder";
             this.mniSetDownloadFolder.Click += new System.EventHandler(this.mniSetDownloadFolder_Click);
             // 
@@ -527,7 +530,7 @@
             // 
             this.mniSelectAll.Name = "mniSelectAll";
             this.mniSelectAll.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-            this.mniSelectAll.Size = new System.Drawing.Size(236, 22);
+            this.mniSelectAll.Size = new System.Drawing.Size(243, 22);
             this.mniSelectAll.Text = "Select &All";
             this.mniSelectAll.Click += new System.EventHandler(this.mniSelectAll_Click);
             // 
@@ -535,7 +538,7 @@
             // 
             this.mniDownloadSelected.Name = "mniDownloadSelected";
             this.mniDownloadSelected.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
-            this.mniDownloadSelected.Size = new System.Drawing.Size(236, 22);
+            this.mniDownloadSelected.Size = new System.Drawing.Size(243, 22);
             this.mniDownloadSelected.Text = "&Download Selected";
             this.mniDownloadSelected.Click += new System.EventHandler(this.mniDownloadSelected_Click);
             // 
@@ -543,7 +546,7 @@
             // 
             this.mniRefresh.Name = "mniRefresh";
             this.mniRefresh.ShortcutKeys = System.Windows.Forms.Keys.F5;
-            this.mniRefresh.Size = new System.Drawing.Size(236, 22);
+            this.mniRefresh.Size = new System.Drawing.Size(243, 22);
             this.mniRefresh.Text = "&Refresh List";
             this.mniRefresh.Click += new System.EventHandler(this.mniRefresh_Click);
             // 
@@ -551,7 +554,7 @@
             // 
             this.mniOpenSelected.Name = "mniOpenSelected";
             this.mniOpenSelected.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.mniOpenSelected.Size = new System.Drawing.Size(236, 22);
+            this.mniOpenSelected.Size = new System.Drawing.Size(243, 22);
             this.mniOpenSelected.Text = "&Open Selected Activity";
             this.mniOpenSelected.Click += new System.EventHandler(this.mniOpenSelected_Click);
             // 
@@ -560,7 +563,7 @@
             this.mniClearCache.Name = "mniClearCache";
             this.mniClearCache.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.C)));
-            this.mniClearCache.Size = new System.Drawing.Size(236, 22);
+            this.mniClearCache.Size = new System.Drawing.Size(243, 22);
             this.mniClearCache.Text = "&Clear Cache";
             this.mniClearCache.Click += new System.EventHandler(this.mniClearCache_Click);
             // 
@@ -569,7 +572,7 @@
             this.mniLogout.Name = "mniLogout";
             this.mniLogout.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.Q)));
-            this.mniLogout.Size = new System.Drawing.Size(236, 22);
+            this.mniLogout.Size = new System.Drawing.Size(243, 22);
             this.mniLogout.Text = "Log &Out";
             this.mniLogout.Click += new System.EventHandler(this.mniSignout_Click);
             // 
@@ -709,7 +712,7 @@
             this.lstDailySummary.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.lstDailySummary.Size = new System.Drawing.Size(476, 368);
             this.lstDailySummary.TabIndex = 7;
-            this.lstDailySummary.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lstDailySummary_KeyDown);
+            this.lstDailySummary.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lstActivities_KeyDown);
             // 
             // cmnDailySummary
             // 
@@ -1003,6 +1006,15 @@
             this.tsbtnWellness.Text = "Wellness";
             this.tsbtnWellness.ToolTipText = "Show Activities";
             // 
+            // mniSendToDailyMile
+            // 
+            this.mniSendToDailyMile.Name = "mniSendToDailyMile";
+            this.mniSendToDailyMile.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.M)));
+            this.mniSendToDailyMile.Size = new System.Drawing.Size(243, 22);
+            this.mniSendToDailyMile.Text = "Send to DailyMile";
+            this.mniSendToDailyMile.Click += new System.EventHandler(this.mniSendToDailyMile_Click);
+            // 
             // GCDownloader
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1129,6 +1141,7 @@
         private System.Windows.Forms.ToolStripButton tsbtnWellness;
         private System.Windows.Forms.ToolStripButton tsbtnActivities;
         private System.Windows.Forms.ToolStripButton tsbtnDailySummary;
+        private System.Windows.Forms.ToolStripMenuItem mniSendToDailyMile;
     }
 }
 

@@ -51,6 +51,10 @@ namespace GCDownloader
         private static string ActivityTypesURL = "https://connect.garmin.com/proxy/activity-service-1.0/json/activity_types";
         private static string EventTypesURL = "https://connect.garmin.com/proxy/activity-service-1.0/json/event_types";
 
+        private static string DMName = "GCDownloader";
+        private static string DMClientID = "cHZZyT57J36TBwwj0Vnjp080C9t1ocJfs2ptJ5o8";
+        private static string DMClientSecret = "NubQqO5vEIBoGOC7fR1XgdH4rYH3AyrdDmpcnsXV";
+
         private int ActivityBatchStart = 0;
         private int ActivityBatchSize = 10;
         private string DownloadFolder = "";
@@ -400,6 +404,12 @@ namespace GCDownloader
             RedoLogin();
         }
 
+        private void lstActivities_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.C && e.Modifiers == Keys.Control && lstActivities.SelectedItems.Count == 1)
+                Clipboard.SetText(((GCActivity)lstActivities.SelectedItem).ActivityName);
+        }
+
         #endregion
 
         #region Daily Summary
@@ -482,6 +492,19 @@ namespace GCDownloader
         #endregion
 
         #region Custom Methods
+
+        #region DailyMile Integration
+
+        private bool AuthorizeDM()
+        {
+            HttpWebRequest request = HttpUtils.CreateRequest(string.Format("https://api.dailymile.com/oauth/authorize?response_type=code&client_id={0}&redirect_uri=http://www.dailymile.com", DMClientID), Cookies);
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            string responseStr = HttpUtils.GetResponseAsString(response);
+            response.Close();
+            return true;
+        }
+
+        #endregion
 
         #region General
 
@@ -832,12 +855,6 @@ namespace GCDownloader
             }
         }
 
-        private void lstDailySummary_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.C && e.Modifiers == Keys.Control && lstActivities.SelectedItems.Count == 1)
-                Clipboard.SetText(((GCActivity)lstActivities.SelectedItem).ActivityName);
-        }
-
         #endregion
 
         #region Daily Summary
@@ -916,6 +933,11 @@ namespace GCDownloader
         #endregion
 
         #endregion
+
+        private void mniSendToDailyMile_Click(object sender, EventArgs e)
+        {
+            AuthorizeDM();
+        }
     }
 
     public class GCActivity
