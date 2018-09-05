@@ -114,7 +114,6 @@
             this.tsbtnActivities = new System.Windows.Forms.ToolStripButton();
             this.tsbtnDailySummary = new System.Windows.Forms.ToolStripButton();
             this.tsbtnWellness = new System.Windows.Forms.ToolStripButton();
-            this.mniSendToDailyMile = new System.Windows.Forms.ToolStripMenuItem();
             this.ssStatus.SuspendLayout();
             this.panelLogin.SuspendLayout();
             this.panelActivities.SuspendLayout();
@@ -512,7 +511,6 @@
             this.mniDownloadSelected,
             this.mniRefresh,
             this.mniOpenSelected,
-            this.mniSendToDailyMile,
             this.mniClearCache,
             this.mniLogout});
             this.cmnActivities.Name = "cmnMenu";
@@ -1006,15 +1004,6 @@
             this.tsbtnWellness.Text = "Wellness";
             this.tsbtnWellness.ToolTipText = "Show Activities";
             // 
-            // mniSendToDailyMile
-            // 
-            this.mniSendToDailyMile.Name = "mniSendToDailyMile";
-            this.mniSendToDailyMile.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.M)));
-            this.mniSendToDailyMile.Size = new System.Drawing.Size(243, 22);
-            this.mniSendToDailyMile.Text = "Send to DailyMile";
-            this.mniSendToDailyMile.Click += new System.EventHandler(this.mniSendToDailyMile_Click);
-            // 
             // GCDownloader
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1141,7 +1130,6 @@
         private System.Windows.Forms.ToolStripButton tsbtnWellness;
         private System.Windows.Forms.ToolStripButton tsbtnActivities;
         private System.Windows.Forms.ToolStripButton tsbtnDailySummary;
-        private System.Windows.Forms.ToolStripMenuItem mniSendToDailyMile;
     }
 }
 

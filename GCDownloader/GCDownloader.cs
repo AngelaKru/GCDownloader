@@ -493,19 +493,6 @@ namespace GCDownloader
 
         #region Custom Methods
 
-        #region DailyMile Integration
-
-        private bool AuthorizeDM()
-        {
-            HttpWebRequest request = HttpUtils.CreateRequest(string.Format("https://api.dailymile.com/oauth/authorize?response_type=code&client_id={0}&redirect_uri=http://www.dailymile.com", DMClientID), Cookies);
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            string responseStr = HttpUtils.GetResponseAsString(response);
-            response.Close();
-            return true;
-        }
-
-        #endregion
-
         #region General
 
         private void SetStatus(string message)
@@ -2000,11 +1987,6 @@ namespace GCDownloader
         #endregion
 
         #endregion
-
-        private void mniSendToDailyMile_Click(object sender, EventArgs e)
-        {
-            AuthorizeDM();
-        }
     }
 
     public class GCActivity
