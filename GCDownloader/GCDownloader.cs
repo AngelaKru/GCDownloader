@@ -32,7 +32,7 @@ namespace GCDownloader
         private string _password;
         private int _redirectCount;
 
-        private static string BASE_URL = "https://sso.garmin.com/sso/login";
+        private static string BASE_URL = "https://sso.garmin.com/sso/signin";
         //private static string GAUTH = "https://connect.garmin.com/gauth/hostname";
         private static string GAUTH = "https://connect.garmin.com/modern/auth/hostname";
         private static string SSO = "https://sso.garmin.com/sso";
@@ -105,6 +105,7 @@ namespace GCDownloader
         private HttpWebResponse PostLogInRequest(string userName, string password)
         {
             HttpWebRequest request = HttpUtils.CreateRequest(GetLogInUrl(), Cookies);
+            request.Headers.Add("origin", "https://sso.garmin.com");
             request.WriteFormData(BuildLogInFormData(userName, password));
             return (HttpWebResponse)request.GetResponse();
         }
@@ -115,7 +116,7 @@ namespace GCDownloader
             //qs.Add("service", "https://connect.garmin.com/post-auth/login");
             qs.Add("service", REDIRECT);
             qs.Add("clientId", ClientId);
-            return "https://sso.garmin.com/sso/login?" + qs;
+            return "https://sso.garmin.com/sso/signin?" + qs;
         }
 
         private static NameValueCollection BuildLogInFormData(string userName, string password)
