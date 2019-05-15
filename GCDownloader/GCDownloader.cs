@@ -11,6 +11,8 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -48,8 +50,8 @@ namespace GCDownloader
         private static string GPX = "https://connect.garmin.com/modern/proxy/download-service/export/gpx/activity/{0}";
         private static string ActivityDetail = "https://connect.garmin.com/modern/activity/{0}";
 
-        private static string ActivityTypesURL = "https://connect.garmin.com/proxy/activity-service-1.0/json/activity_types";
-        private static string EventTypesURL = "https://connect.garmin.com/proxy/activity-service-1.0/json/event_types";
+        private static string ActivityTypesURL = "https://connect.garmin.com/modern/proxy/activity-service/activity/activityTypes";
+        private static string EventTypesURL = "https://connect.garmin.com/modern/proxy/activity-service/activity/eventTypes";
 
         private static string DMName = "GCDownloader";
         private static string DMClientID = "cHZZyT57J36TBwwj0Vnjp080C9t1ocJfs2ptJ5o8";
@@ -599,7 +601,12 @@ namespace GCDownloader
                 string responseStr = HttpUtils.GetResponseAsString(response);
                 response.Close();
 
-                ActivityTypes = (GCActivityTypes)JsonConvert.DeserializeObject<GCActivityTypes>(responseStr);
+                //ActivityTypes = (GCActivityTypes)JsonConvert.DeserializeObject<GCActivityTypes>(responseStr);
+                activityTypes = new GCActivityTypes();
+                MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(String.Format(@"{{""activityTypes"":{0}}}", responseStr)));
+                DataContractJsonSerializer ser = new DataContractJsonSerializer(activityTypes.GetType());
+                activityTypes = ser.ReadObject(ms) as GCActivityTypes;
+                ms.Close();
                 return true;
             }
             catch (Exception ex)
@@ -1633,7 +1640,12 @@ namespace GCDownloader
                 string responseStr = HttpUtils.GetResponseAsString(response);
                 response.Close();
 
-                EventTypes = (GCEventTypes)JsonConvert.DeserializeObject<GCEventTypes>(responseStr);
+                //EventTypes = (GCEventTypes)JsonConvert.DeserializeObject<GCEventTypes>(responseStr);
+                eventTypes = new GCEventTypes();
+                MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(String.Format(@"{{""eventTypes"":{0}}}", responseStr)));
+                DataContractJsonSerializer ser = new DataContractJsonSerializer(eventTypes.GetType());
+                eventTypes = ser.ReadObject(ms) as GCEventTypes;
+                ms.Close();
                 return true;
             }
             catch (Exception ex)
@@ -1859,14 +1871,14 @@ namespace GCDownloader
         {
             if (activity != null)
             {
-                GCActivityType activityType = ActivityTypes.dictionary.Find(res => res.key == activity.ActivityType);
-                GCEventType eventType = EventTypes.dictionary.Find(res => res.key == activity.EventType);
+                //GCActivityType activityType = ActivityTypes.dictionary.Find(res => res.key == activity.ActivityType);
+                //GCEventType eventType = EventTypes.dictionary.Find(res => res.key == activity.EventType);
 
                 txtActivityID.Text = activity.ActivityID.ToString();
                 txtActivityName.Text = activity.ActivityName;
                 txtActivityTime.Text = activity.ActivityStartTime.ToString("yyyy-MM-dd HH:mm");
-                txtActivityType.Text = activityType == null ? "" : activityType.display;
-                txtEventType.Text = eventType == null ? "" : eventType.display;
+                txtActivityType.Text = activity.ActivityType;
+                txtEventType.Text = activity.EventType;
                 txtDistance.Text = (activity.Distance / 1000).ToString("#,0.00 km");
                 txtDuration.Text = TimeSpan.FromSeconds(activity.Duration).ToString(@"hh\:mm\:ss");
                 txtCalories.Text = activity.Calories.ToString("0 C");
@@ -2041,34 +2053,38 @@ namespace GCDownloader
         }
     }
 
-    public class GCActivityBaseType
-    {
-        public string key { get; set; }
-        public string display { get; set; }
-    }
-
+    [DataContract]
     public class GCActivityType
     {
-        public string key { get; set; }
-        public string display { get; set; }
-        public GCActivityBaseType parent { get; set; }
-        public GCActivityBaseType type { get; set; }
+        [DataMember]
+        public int typeId { get; set; }
+        [DataMember]
+        public string typeKey { get; set; }
+        [DataMember]
+        public int parentTypeId { get; set; }
+        [DataMember]
+        public int sortOrder { get; set; }
     }
 
     public class GCActivityTypes
     {
-        public List<GCActivityType> dictionary { get; set; }
+        public List<GCActivityType> activityTypes { get; set; }
     }
 
+    [DataContract]
     public class GCEventType
     {
-        public string key { get; set; }
-        public string display { get; set; }
+        [DataMember]
+        public int typeId { get; set; }
+        [DataMember]
+        public string typeKey { get; set; }
+        [DataMember]
+        public int sortOrder { get; set; }
     }
 
     public class GCEventTypes
     {
-        public List<GCEventType> dictionary { get; set; }
+        public List<GCEventType> eventTypes { get; set; }
     }
 
     public class GCDailySummary
