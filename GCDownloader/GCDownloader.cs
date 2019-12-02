@@ -28,7 +28,7 @@ namespace GCDownloader
 {
     public partial class GCDownloader : Form
     {
-        private CookieContainer _cookieJar;
+        //private CookieContainer _cookieJar;
         private string _username;
         //private string _folder;
         private string _password;
@@ -36,7 +36,7 @@ namespace GCDownloader
 
         private static string BASE_URL = "https://sso.garmin.com/sso/signin";
         //private static string GAUTH = "https://connect.garmin.com/gauth/hostname";
-        private static string GAUTH = "https://connect.garmin.com/modern/auth/hostname";
+        //private static string GAUTH = "https://connect.garmin.com/modern/auth/hostname";
         private static string SSO = "https://sso.garmin.com/sso";
         private static string CSS = "https://static.garmincdn.com/com.garmin.connect/ui/css/gauth-custom-v1.2-min.css";
         //private static string REDIRECT = "https://connect.garmin.com/post-auth/login";
@@ -52,10 +52,6 @@ namespace GCDownloader
 
         private static string ActivityTypesURL = "https://connect.garmin.com/modern/proxy/activity-service/activity/activityTypes";
         private static string EventTypesURL = "https://connect.garmin.com/modern/proxy/activity-service/activity/eventTypes";
-
-        private static string DMName = "GCDownloader";
-        private static string DMClientID = "cHZZyT57J36TBwwj0Vnjp080C9t1ocJfs2ptJ5o8";
-        private static string DMClientSecret = "NubQqO5vEIBoGOC7fR1XgdH4rYH3AyrdDmpcnsXV";
 
         private int ActivityBatchStart = 0;
         private int ActivityBatchSize = 10;
@@ -134,13 +130,14 @@ namespace GCDownloader
         private bool ProcessTicket(string ticketUrl)
         {
             HttpWebRequest request = HttpUtils.CreateRequest(ticketUrl, Cookies);
+            request.Headers.Add("origin", "https://sso.garmin.com");
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             if (response.StatusCode != HttpStatusCode.OK)
                 throw new Exception("Invalid ticket URL.");
 
-            bool retVal = IsDashboardUri(response.ResponseUri);
+            //bool retVal = IsDashboardUri(response.ResponseUri);
             response.Close();
-            return retVal;
+            return true;
         }
 
         private static bool IsDashboardUri(Uri uri)
@@ -173,6 +170,7 @@ namespace GCDownloader
         public void SignOut()
         {
             HttpWebRequest request = HttpUtils.CreateRequest("https://sso.garmin.com/sso/logout?service=http%3A%2F%2Fconnect.garmin.com%2F", Cookies);
+            request.Headers.Add("origin", "https://sso.garmin.com");
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             response.Close();
             loginStatus = LoginStatus.LoggedOut;
@@ -248,7 +246,8 @@ namespace GCDownloader
         public GCDownloader()
         {
             InitializeComponent();
-            _cookieJar = new CookieContainer();
+            //_cookieJar = new CookieContainer();
+            Cookies = new CookieContainer();
 
             toolStripGCDownloader.SendToBack();
             toolStripGCDownloader.Visible = false;
@@ -597,6 +596,7 @@ namespace GCDownloader
             try
             {
                 HttpWebRequest request = HttpUtils.CreateRequest(ActivityTypesURL, Cookies);
+                request.Headers.Add("origin", "https://sso.garmin.com");
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
                 string responseStr = HttpUtils.GetResponseAsString(response);
                 response.Close();
@@ -1636,6 +1636,7 @@ namespace GCDownloader
             try
             {
                 HttpWebRequest request = HttpUtils.CreateRequest(EventTypesURL, Cookies);
+                request.Headers.Add("origin", "https://sso.garmin.com");
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
                 string responseStr = HttpUtils.GetResponseAsString(response);
                 response.Close();
@@ -1714,6 +1715,7 @@ namespace GCDownloader
                 btnPrevious.Enabled = start > 0;
 
                 HttpWebRequest request = HttpUtils.CreateRequest(string.Format(ACTIVITIES, start, batchsize), Cookies);
+                request.Headers.Add("origin", "https://sso.garmin.com");
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
                 string responseStr = HttpUtils.GetResponseAsString(response);
                 response.Close();
@@ -1750,8 +1752,9 @@ namespace GCDownloader
 
                 lstActivities.Focus();
             }
-            catch
+            catch (Exception ex)
             {
+                SetStatus(ex.Message);
                 RedoLogin();
             }
         }
@@ -1787,6 +1790,7 @@ namespace GCDownloader
                     {
                         statusMessage.Text = string.Format("Downloading \"{0}\" TCX {1}", activity.ActivityName, activity.ActivityStartTime.ToString("yyyy-MM-dd"));
                         request = HttpUtils.CreateRequest(string.Format(TCX, activity.ActivityID), Cookies);
+                        request.Headers.Add("origin", "https://sso.garmin.com");
                         request.Timeout = 1000 * 10;
                         response = (HttpWebResponse)request.GetResponse();
                         if (!File.Exists(string.Format("{0}.tcx", Filename))) response.SaveResponseToFile(string.Format("{0}.tcx", Filename));
@@ -1802,6 +1806,7 @@ namespace GCDownloader
                     {
                         statusMessage.Text = string.Format("Downloading \"{0}\" GPX {1}", activity.ActivityName, activity.ActivityStartTime.ToString("yyyy-MM-dd"));
                         request = HttpUtils.CreateRequest(string.Format(GPX, activity.ActivityID), Cookies);
+                        request.Headers.Add("origin", "https://sso.garmin.com");
                         request.Timeout = 1000 * 10;
                         response = (HttpWebResponse)request.GetResponse();
                         if (!File.Exists(string.Format("{0}.gpx", Filename))) response.SaveResponseToFile(string.Format("{0}.gpx", Filename));
@@ -1956,6 +1961,7 @@ namespace GCDownloader
             {   //an extended period of inactivity may cause the session to expire, in which case, log in again
 
                 HttpWebRequest request = HttpUtils.CreateRequest(string.Format(DAILYSUMMARY, Username, date.ToString("yyyy-MM-dd")), Cookies);
+                request.Headers.Add("origin", "https://sso.garmin.com");
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
                 string responseStr = HttpUtils.GetResponseAsString(response);
                 response.Close();
